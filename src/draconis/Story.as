@@ -6,7 +6,7 @@
 
 		public function Story() {
 			// constructor code
-		}
+		} 
 		public static function mainStory(eventNum:Number) {
 			Core.flags.activeGame = true;
 			Core.buttons.flushBtns();
@@ -16,12 +16,12 @@
 				Core.text.gameOutput("\r\rThe strange sense of being watched creeps up the back of your neck but, again, there is no one here by you. You pinch yourself to double check and feel no pain. Definitely a dream… however, you feel like you’ve been here before. You feel like you should know this place but this is the first time you can recall ever seeing it.", false);
 				Core.text.gameOutput("\r\rYou suddenly hear… something. At first, it’s very faint and hard to make out but the sound steadily gets louder until you realize someone is shouting your name. Your name… what is your name? You seem to have a hard time remembering it now.", false);
 				Core.screens.game.nameInput.visible = true;
-				Core.buttons.button1("Confirm", 2);
+				Core.buttons.button(1, "Confirm", 2);
 			}
 			if (eventNum == 2) {
 				if (Core.screens.game.nameInput.text == "") {
 					Core.text.gameOutput("Pick a name, dunce.", true);
-					Core.buttons.button1("Confirm", 2);
+					Core.buttons.button(1, "Confirm", 2);
 				}
 				else {
 					Core.text.gameOutput("“[pcName]! Get the hell up, you lazy bum!” A familiar, masculine voice calls.", true);
