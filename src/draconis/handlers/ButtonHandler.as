@@ -10,10 +10,7 @@
 	public class ButtonHandler {
 		public var nextBtn:Boolean = false;
 		//Button assignment variables
-<<<<<<< HEAD
-=======
 		//Array now handles all the button number assignments [Void Director]
->>>>>>> Streamlined Buttonhandler
 		public var btnChoice:Array = new Array();
 
 		public function ButtonHandler() {
@@ -33,13 +30,8 @@
 			Core.screens.game.btnMainMenu.addEventListener(MouseEvent.MOUSE_DOWN, returnMenu);
 			Core.screens.game.btnProfile.addEventListener(MouseEvent.MOUSE_DOWN, loadProfile);
 			Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, saveData);
-<<<<<<< HEAD
-			
-			for(var i:int = 0; i < 15; i ++) {
-=======
 			//Loop that assigns eventlistner to the assigned button(s) [Void Director]
 			for (var i:int = 0; i < 15; i ++) {
->>>>>>> Streamlined Buttonhandler
 				var btnEventHandler:Function = onClick(i)
 				function onClick(btnNumber:int):Function {
 					return function(e:MouseEvent):void {
@@ -49,18 +41,11 @@
 						}
 						Core.events.currEvent = btnChoice[btnNumber];
 						Story.mainStory(Core.events.currEvent);
-<<<<<<< HEAD
-=======
 						TyrRuins.tyrRuins(Core.events.currEvent);
->>>>>>> Streamlined Buttonhandler
 					};
 				}
 				Core.screens.game["btn" + (i + 1)].addEventListener(MouseEvent.MOUSE_DOWN, btnEventHandler);
 			}
-<<<<<<< HEAD
-			
-=======
->>>>>>> Streamlined Buttonhandler
 		}
 		//Load Inventory Eventlisteners
 		public function initiInven():void {
@@ -188,34 +173,19 @@
 		private function runFrom(e:MouseEvent):void {
 			Core.text.combatOutput("\rYou could escape... if it was allowed.", false);
 		}
-<<<<<<< HEAD
-		
-		// New master button thingy
-=======
 		//Master button assign thingy ma-jig
 		//Writes text label for button, assigns the appropriate event number, and uses btnNumber to identify which button in the display to use [Void Director]
->>>>>>> Streamlined Buttonhandler
 		public function button(btnNumber:int, label:String, eventNum:Number) {
 			Core.screens.game["btn" + btnNumber].visible = true;
 			Core.screens.game["btn" + btnNumber].btnText.text = label;
 			btnChoice[btnNumber - 1] = eventNum;
 		}
-<<<<<<< HEAD
-						
-		public function flushBtns() {
-			//Reset visibility to false
-			for ( var i:int = 0; i < 15; i += 1) {
-				//Reset visibility to false
-				Core.screens.game["btn" + (i + 1)].visible = false ;
-				//Flush numbers
-=======
 		//New button flush function [Void Director]
 		public function flushBtns() {
 			for ( var i:int = 0; i < 15; i += 1) {
 				//Default button visibility back to false
 				Core.screens.game["btn" + (i + 1)].visible = false;
 				//Flush the assigned number values
->>>>>>> Streamlined Buttonhandler
 				btnChoice[i] = 0;
 			}
 		}

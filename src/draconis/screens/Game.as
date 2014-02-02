@@ -75,21 +75,21 @@
 			btnInventory.visible = true;
 			btnSaveGame.visible = true;
 			btnMainMenu.visible = true;
-			btn1.visible = false;
-			btn2.visible = false;
-			btn3.visible = false;
-			btn4.visible = false;
-			btn5.visible = false;
-			btn6.visible = false;
-			btn7.visible = false;
-			btn8.visible = false;
-			btn9.visible = false;
-			btn10.visible = false;
-			btn11.visible = false;
-			btn12.visible = false;
-			btn13.visible = false;
-			btn14.visible = false;
-			btn15.visible = false;
+			//btn1.visible = false;
+			//btn2.visible = false;
+			//btn3.visible = false;
+			//btn4.visible = false;
+			//btn5.visible = false;
+			//btn6.visible = false;
+			//btn7.visible = false;
+			//btn8.visible = false;
+			//btn9.visible = false;
+			//btn10.visible = false;
+			//btn11.visible = false;
+			//btn12.visible = false;
+			//btn13.visible = false;
+			//btn14.visible = false;
+			//btn15.visible = false;
 			Core.buttons.initiGame();
 		}
 		public function refreshScreen() {
@@ -98,7 +98,7 @@
 		}
 		private function hackGame(event:KeyboardEvent) {
 			if (event.keyCode == 13) {
-				if (consoleInput.text == "obsidianshark") {
+				if (consoleInput.text == "esar") {
 					Player.str = 99;
 					Player.endr = 99;
 					Player.agi = 99;
