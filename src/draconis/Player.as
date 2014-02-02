@@ -8,6 +8,7 @@
 		public static var gender:int = 0;
 		public static var fertile:Number = 0;
 		public static var lvl:int = 0;
+		public static var exp:int = 0;
 		//Combat stats
 		public static var str:int = 0; //Strength
 		public static var endr:int = 0; //Endurance
@@ -210,6 +211,8 @@
 			neuFaction = 0;
 			//Set other stuff
 			isVirgin = true;
+			lvl = 1;
+			exp = 0;
 			killMale();
 		}
 		//Kill Funcitons

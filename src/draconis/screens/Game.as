@@ -3,6 +3,7 @@
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
+	import draconis.*;
 	
 	import draconis.*;
 	
@@ -13,12 +14,15 @@
 			// constructor code
 			this.addEventListener(Event.ADDED_TO_STAGE, initialize);
 			consoleInput.addEventListener(KeyboardEvent.KEY_DOWN, hackGame);
+			refreshScreen();
 		}
 		private function initialize(e:Event):void {
 			Core.flags.activeGame = true;
-			nameText.text = "" +Player.name + "";
+			pcPane.nameText.text = "" +Player.name + "";
+			pcPane.level.text = "" + Player.lvl +"";
+			pcPane.exp.text = "" + Player.exp + "";
 			//Toggle console input
-			if (Core.debug) {
+			if (Core.flags.switch_DevMode) {
 				consoleInput.visible = true;
 			}
 			else {
@@ -86,7 +90,11 @@
 			btn13.visible = false;
 			btn14.visible = false;
 			btn15.visible = false;
-			Core.buttons.initiGame();			
+			Core.buttons.initiGame();
+		}
+		public function refreshScreen() {
+			pcPane.level.text = "" + Player.lvl + "";
+			pcPane.exp.text = "" +Player.exp + "";
 		}
 		private function hackGame(event:KeyboardEvent) {
 			if (event.keyCode == 13) {
@@ -96,6 +104,7 @@
 					Player.agi = 99;
 					Player.dex = 99;
 					Player.wis = 99;
+					Player.lvl = 99;
 				}
 			}
 		}

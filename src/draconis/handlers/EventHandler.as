@@ -17,9 +17,10 @@
 		//Start a new game... duh
 		public function newGame():void {
 			Core.flags.activeGame = true;
-			Core.screens.game.btnProfile.visible = false;
 			Core.screens.game.btnInventory.visible = false;
+			Core.screens.game.btnProfile.visible = false;
 			Core.screens.game.btnSaveGame.visible = false;
+			Core.screens.game.pcPane.visible = false;
 			Core.bag.flushInven();
 			Story.mainStory(1);
 		}
@@ -27,7 +28,7 @@
 		public function setPlayerName():void {
 			Player.name = String(Core.screens.game.nameInput.text);
 			Core.screens.game.nameInput.visible = false;
-			Core.screens.game.nameText.text = "" + Player.name + "";
+			Core.screens.game.pcPane.nameText.text = "" + Player.name + "";
 		}
 		//Increase Player's aggressive score
 		public function addAggro():void {

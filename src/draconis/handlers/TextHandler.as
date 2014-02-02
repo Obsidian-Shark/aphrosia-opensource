@@ -1,6 +1,7 @@
 ﻿package draconis.handlers {
 	
 	import draconis.Core;
+	import draconis.Player;
 	
 	public class TextHandler {
 		public var currText:String = "";

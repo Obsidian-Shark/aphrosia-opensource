@@ -16,8 +16,6 @@
 		}
 		private function initialize(e:Event):void {
 			//Set output fields
-			pcName.text = "" + Player.name + "";
-			level.text = "" + Player.lvl + "";
 			strOutput.text = "" + Player.str + "";
 			endrOutput.text = ""+Player.endr + "";
 			dexOutput.text = "" + Player.dex + "";

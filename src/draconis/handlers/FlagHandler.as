@@ -9,6 +9,12 @@
 		public var switch_DevMode:Boolean = false;
 		//Active Game check
 		public var activeGame:Boolean = false;
+		//Location Check
+		public var loc_tyrRuins:Boolean = false;
+		public var loc_vespyr:Boolean = false;
+		public var loc_greenSea:Boolean = false;
+		public var loc_elsyrWoodlands:Boolean = false;
+		public var loc_elsyr:Boolean = false;
 		//One-time Event flags... to prevent cheating exploits... I hope
 		public var tyr_HelpedArgoAtShop:Boolean = false;
 		public var tyr_FlirtedWithArgo:Boolean = false;
