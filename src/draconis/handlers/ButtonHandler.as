@@ -9,22 +9,7 @@
 	public class ButtonHandler {
 		public var nextBtn:Boolean = false;
 		//Button assignment variables
-		public var btn1Choice:Number = 0;
-		public var btn2Choice:Number = 0;
-		public var btn3Choice:Number = 0;
-		public var btn4Choice:Number = 0;
-		public var btn5Choice:Number = 0;
-		public var btn6Choice:Number = 0;
-		public var btn7Choice:Number = 0;
-		public var btn8Choice:Number = 0;
-		public var btn9Choice:Number = 0;
-		public var btn10Choice:Number = 0;
-		public var btn11Choice:Number = 0;
-		public var btn12Choice:Number = 0;
-		public var btn13Choice:Number = 0;
-		public var btn14Choice:Number = 0;
-		public var btn15Choice:Number = 0;
-		public var contBtnChoice:Number = 0;
+		public var btnChoice:Array = new Array();
 
 		public function ButtonHandler() {
 			// constructor code
@@ -43,21 +28,22 @@
 			Core.screens.game.btnMainMenu.addEventListener(MouseEvent.MOUSE_DOWN, returnMenu);
 			Core.screens.game.btnProfile.addEventListener(MouseEvent.MOUSE_DOWN, loadProfile);
 			Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, saveData);
-			Core.screens.game.btn1.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent1);
-			Core.screens.game.btn2.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent2);
-			Core.screens.game.btn3.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent3);
-			Core.screens.game.btn4.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent4);
-			Core.screens.game.btn5.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent5);
-			Core.screens.game.btn6.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent6);
-			Core.screens.game.btn7.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent7);
-			Core.screens.game.btn8.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent8);
-			Core.screens.game.btn9.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent9);
-			Core.screens.game.btn10.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent10);
-			Core.screens.game.btn11.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent11);
-			Core.screens.game.btn12.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent12);
-			Core.screens.game.btn13.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent13);
-			Core.screens.game.btn14.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent14);
-			Core.screens.game.btn15.addEventListener(MouseEvent.MOUSE_DOWN, btnEvent15);
+			
+			for(var i:int = 0; i < 15; i ++) {
+				var btnEventHandler:Function = onClick(i)
+				function onClick(btnNumber:int):Function {
+					return function(e:MouseEvent):void {
+						if (btnChoice[btnNumber] == 0) {
+							Core.text.gameOutput("\rNo assignment.", false);
+							return;
+						}
+						Core.events.currEvent = btnChoice[btnNumber];
+						Story.mainStory(Core.events.currEvent);
+					};
+				}
+				Core.screens.game["btn" + (i + 1)].addEventListener(MouseEvent.MOUSE_DOWN, btnEventHandler);
+			}
+			
 		}
 		//Load Inventory Eventlisteners
 		public function initiInven():void {
@@ -185,237 +171,22 @@
 		private function runFrom(e:MouseEvent):void {
 			Core.text.combatOutput("\rYou could escape... if it was allowed.", false);
 		}
-		//Master button thingy...
-		public function button1(label:String, eventNum:Number) {
-			Core.screens.game.btn1.visible = true;
-			Core.screens.game.btn1.btnText.text = label;
-			btn1Choice = eventNum;
+		
+		// New master button thingy
+		public function button(btnNumber:int, label:String, eventNum:Number) {
+			Core.screens.game["btn" + btnNumber].visible = true;
+			Core.screens.game["btn" + btnNumber].btnText.text = label;
+			btnChoice[btnNumber - 1] = eventNum;
 		}
-		public function button2(label:String, eventNum:Number) {
-			Core.screens.game.btn2.visible = true;
-			Core.screens.game.btn2.btnText.text = label;
-			btn2Choice = eventNum;
-		}
-		public function button3(label:String, eventNum:Number) {
-			Core.screens.game.btn3.visible = true;
-			Core.screens.game.btn3.btnText.text = label;
-			btn3Choice = eventNum;
-		}
-		public function button4(label:String, eventNum:Number) {
-			Core.screens.game.btn4.visible = true;
-			Core.screens.game.btn4.btnText.text = label;
-			btn4Choice = eventNum;
-		}
-		public function button5(label:String, eventNum:Number) {
-			Core.screens.game.btn5.visible = true;
-			Core.screens.game.btn5.btnText.text = label;
-			btn5Choice = eventNum;
-		}
-		public function button6(label:String, eventNum:Number) {
-			Core.screens.game.btn6.visible = true;
-			Core.screens.game.btn6.btnText.text = label;
-			btn6Choice = eventNum;
-		}
-		public function button7(label:String, eventNum:Number) {
-			Core.screens.game.btn7.visible = true;
-			Core.screens.game.btn7.btnText.text = label;
-			btn7Choice = eventNum;
-		}
-		public function button8(label:String, eventNum:Number) {
-			Core.screens.game.btn8.visible = true;
-			Core.screens.game.btn8.btnText.text = label;
-			btn8Choice = eventNum;
-		}
-		public function button9(label:String, eventNum:Number) {
-			Core.screens.game.btn9.visible = true;
-			Core.screens.game.btn9.btnText.text = label;
-			btn9Choice = eventNum;
-		}
-		public function button10(label:String, eventNum:Number) {
-			Core.screens.game.btn10.visible = true;
-			Core.screens.game.btn10.btnText.text = label;
-			btn10Choice = eventNum;
-		}
-		public function button11(label:String, eventNum:Number) {
-			Core.screens.game.btn11.visible = true;
-			Core.screens.game.btn11.btnText.text = label;
-			btn11Choice = eventNum;
-		}
-		public function button12(label:String, eventNum:Number) {
-			Core.screens.game.btn12.visible = true;
-			Core.screens.game.btn12.btnText.text = label;
-			btn12Choice = eventNum;
-		}
-		public function button13(label:String, eventNum:Number) {
-			Core.screens.game.btn13.visible = true;
-			Core.screens.game.btn13.btnText.text = label;
-			btn13Choice = eventNum;
-		}
-		public function button14(label:String, eventNum:Number) {
-			Core.screens.game.btn14.visible = true;
-			Core.screens.game.btn14.btnText.text = label;
-			btn14Choice = eventNum;
-		}
-		public function button15(label:String, eventNum:Number) {
-			Core.screens.game.btn15.visible = true;
-			Core.screens.game.btn15.btnText.text = label;
-			btn15Choice = eventNum;
-		}
-		//Button Controls
-		//This shit needs to be more efficent cause it's pissing me off to have to directly assign numbers and text
-		private function btnEvent1(e:MouseEvent):void {
-			if (btn1Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn1Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent2(e:MouseEvent):void {
-			if (btn2Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn2Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent3(e:MouseEvent) {
-			if(btn3Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn3Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent4(e:MouseEvent) {
-			if (btn4Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn4Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent5(e:MouseEvent) {
-			if (btn5Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn5Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent6(e:MouseEvent) {
-			if (btn6Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn6Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent7(e:MouseEvent) {
-			if (btn7Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn7Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent8(e:MouseEvent) {
-			if (btn8Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn8Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent9(e:MouseEvent) {
-			if (btn9Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn9Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent10(e:MouseEvent) {
-			if (btn10Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn10Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent11(e:MouseEvent) {
-			if (btn11Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn11Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent12(e:MouseEvent) {
-			if (btn12Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn12Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent13(e:MouseEvent) {
-			if (btn13Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn13Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent14(e:MouseEvent) {
-			if (btn14Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn14Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
-		private function btnEvent15(e:MouseEvent) {
-			if (btn15Choice == 0) {
-				Core.text.gameOutput("\rNo assignment.", false);
-				return;
-			}
-			Core.events.currEvent = btn15Choice;
-			Story.mainStory(Core.events.currEvent);
-		}
+						
 		public function flushBtns() {
 			//Reset visibility to false
-			Core.screens.game.btn1.visible = false;
-			Core.screens.game.btn2.visible = false;
-			Core.screens.game.btn3.visible = false;
-			Core.screens.game.btn4.visible = false;
-			Core.screens.game.btn5.visible = false;
-			Core.screens.game.btn6.visible = false;
-			Core.screens.game.btn7.visible = false;
-			Core.screens.game.btn8.visible = false;
-			Core.screens.game.btn9.visible = false;
-			Core.screens.game.btn10.visible = false;
-			Core.screens.game.btn11.visible = false;
-			Core.screens.game.btn12.visible = false;
-			Core.screens.game.btn13.visible = false;
-			Core.screens.game.btn14.visible = false;
-			Core.screens.game.btn15.visible = false;
-			//Flush numbers
-			Core.buttons.btn1Choice = 0;
-			Core.buttons.btn2Choice = 0;
-			Core.buttons.btn3Choice = 0;
-			Core.buttons.btn4Choice = 0;
-			Core.buttons.btn5Choice = 0;
-			Core.buttons.btn6Choice = 0;
-			Core.buttons.btn7Choice = 0;
-			Core.buttons.btn8Choice = 0;
-			Core.buttons.btn9Choice = 0;
-			Core.buttons.btn10Choice = 0;
-			Core.buttons.btn11Choice = 0;
-			Core.buttons.btn12Choice = 0;
-			Core.buttons.btn13Choice = 0;
-			Core.buttons.btn14Choice = 0;
-			Core.buttons.btn15Choice = 0;
+			for ( var i:int = 0; i < 15; i += 1) {
+				//Reset visibility to false
+				Core.screens.game["btn" + (i + 1)].visible = false ;
+				//Flush numbers
+				btnChoice[i] = 0;
+			}
 		}
 
 	}
