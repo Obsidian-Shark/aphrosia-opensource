@@ -40,8 +40,8 @@
 							return;
 						}
 						Core.events.currEvent = btnChoice[btnNumber];
-						Story.mainStory(Core.events.currEvent);
-						TyrRuins.tyrRuins(Core.events.currEvent);
+						if(Core.flags.loc_tyrRuins) TyrRuins.tyrRuins(Core.events.currEvent);
+						else Story.mainStory(Core.events.currEvent);
 					};
 				}
 				Core.screens.game["btn" + (i + 1)].addEventListener(MouseEvent.MOUSE_DOWN, btnEventHandler);
