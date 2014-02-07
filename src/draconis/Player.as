@@ -2,7 +2,7 @@
 	
 	import draconis.Core;
 	
-	public class Player {
+	dynamic public class Player {
 		//Base Stats
 		public static var name:String = "";
 		public static var gender:int = 0;
@@ -88,6 +88,7 @@
 		
 		public function Player() {
 			// constructor code
+			trace("Player instance created");
 		}
 		//Character Creation Functions
 		public static function isMale():void {

@@ -154,12 +154,6 @@
 		}
 		//Player attacks!
 		private function attack(e:MouseEvent):void {
-			if (Core.combat.e2_Active) {
-				//Core.combat.targetAtk();
-			}
-			else {
-				Core.combat.pcAttack();
-			}
 		}
 		//Open the Skill Menu
 		private function skillMenu(e:MouseEvent):void {
