@@ -27,21 +27,14 @@
 		}
 		//Plugs in data for turn array... I think
 		private function setTurns() {
-			turnOrder.push(player);
 			turnOrder.push(comp1);
 			turnOrder.push(comp2);
 			turnOrder.push(enemy1);
 			turnOrder.push(enemy2);
 			turnOrder.push(enemy3);
 		}
-		//Sets turn order in array
-		public function runTurn() {
-			turnOrder.sortOn("agi");
-			for (var i:int; i < turnOrder.length; i++) {
-				turnOrder[i].runTurn();
-			}
-		}
 		private function loadPC() {
+			
 			player.name = "" + Player.name + "";
 			player.str = Player.str;
 			player.endr = Player.endr;
@@ -55,6 +48,17 @@
 			player.MP = player.maxMP;
 			player.SP = player.maxSP;
 			player.lust = 0;
+		}
+		//Run the turn for all entities and the Player
+		public function runAllTurns() {
+			//Run the Player's turn
+			player.runTurn();
+			//Sort the arry of other entities by agility scores
+			turnOrder.sort("agi");
+			//Run each entities turn in the order set
+			for (var i:int; i < turnOrder.length; i++) {
+				turnOrder[i].runTurn();
+			}
 		}
 	}
 }

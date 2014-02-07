@@ -21,6 +21,10 @@ package draconis {
 		public function Entity() {
 			//constructor code
 		}
+		//Sets turn order in array
+		public function runTurn() {
+			
+		}
 		public function attack(target:Entity) {
 			
 		}
