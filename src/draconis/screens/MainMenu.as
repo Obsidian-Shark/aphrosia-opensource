@@ -22,24 +22,14 @@
 			btnNewGame.visible = true;
 			btnLoadGame.visible = true;
 			btnCredits.visible = true;
-			btnDevMode.visible = true;
-			if (Core.flags.activeGame) {
-				btnResume.visible = true;
-			}
-			else {
-				btnResume.visible = false;
-			}
-			devMode_Indc.visible = false;
 			//Deactivate text fields
 			btnCredits.btnText.mouseEnabled = false;
-			btnDevMode.btnText.mouseEnabled = false;
 			btnLoadGame.btnText.mouseEnabled = false;
 			btnNewGame.btnText.mouseEnabled = false;
 			btnResume.btnText.mouseEnabled = false;
 			updateText.mouseEnabled = false;
 			//Set default button labels
 			btnCredits.btnText.text = "Credits";
-			btnDevMode.btnText.text = "Dev Mode";
 			btnLoadGame.btnText.text = "Load Game";
 			btnNewGame.btnText.text = "New Game";
 			btnResume.btnText.text = "Resume";

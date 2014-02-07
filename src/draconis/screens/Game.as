@@ -21,12 +21,7 @@
 			pcPane.level.text = "" + Player.lvl +"";
 			pcPane.exp.text = "" + Player.exp + "";
 			//Toggle console input
-			if (Core.flags.switch_DevMode) {
-				consoleInput.visible = true;
-			}
-			else {
-				consoleInput.visible = false;
-			}
+			//New structure for hacking/cheating the game will be implemented... later
 			//Name input field
 			nameInput.visible = false;
 			//Deactivate button textfields

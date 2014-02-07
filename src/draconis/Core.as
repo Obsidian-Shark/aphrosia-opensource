@@ -14,12 +14,7 @@
 		public static var flags:FlagHandler = new FlagHandler();
 		public static var combat:CombatHandler = new CombatHandler();
 		public static var gameData:SaveLoad = new SaveLoad(); 
-		
-		public static var debug:Boolean = false;
-		public static var hardMode:Boolean = false;
-		
-		public static var story_Active:Boolean = false;
-		
+				
 		public function Core() {
 			// constructor code
 			this.addChild(screens);

@@ -19,7 +19,6 @@
 		//Load Main Menu Eventlisteners
 		public  function initiMain():void {
 			Core.screens.main.btnNewGame.addEventListener(MouseEvent.MOUSE_DOWN, startNewGame);
-			Core.screens.main.btnDevMode.addEventListener(MouseEvent.MOUSE_DOWN, devMode);
 			Core.screens.main.btnLoadGame.addEventListener(MouseEvent.MOUSE_DOWN, loadData);
 			Core.screens.main.btnResume.addEventListener(MouseEvent.MOUSE_DOWN, resumeGame);
 			Core.screens.main.btnCredits.addEventListener(MouseEvent.MOUSE_DOWN, credits);
@@ -79,19 +78,6 @@
 			Core.screens.switchTo("Game");
 			Core.events.newGame();
 			trace("New Game started");
-		}
-		//Toggle Dev Mode
-		private function devMode(e:MouseEvent):void {
-			if (Core.flags.switch_DevMode) {
-				Core.flags.switch_DevMode = false;
-				Core.screens.main.devMode_Indc.visible = false;
-				trace("Developer Mode = " +Core.flags.switch_DevMode + "");
-			}
-			else {
-				Core.flags.switch_DevMode = true;
-				Core.screens.main.devMode_Indc.visible = true;
-				trace("Developer Mode = " + Core.flags.switch_DevMode + "");
-			}
 		}
 		//Return to Main Menu
 		private function returnMenu(e:MouseEvent):void {

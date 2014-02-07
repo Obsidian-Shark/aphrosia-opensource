@@ -48,12 +48,12 @@
 			player.dex = Player.dex;
 			player.agi = Player.agi;
 			player.wis = Player.wis;
-			player.maxHP = entity.endr * 2.5;
-			player.maxMP = entity.wis * 1.5;
-			player.maxSP = entity.str * 1.5;
-			player.HP = entity.maxHP;
-			player.MP = entity.maxMP;
-			player.SP = entity.maxSP;
+			player.maxHP = player.endr * 2.5;
+			player.maxMP = player.wis * 1.5;
+			player.maxSP = player.str * 1.5;
+			player.HP = player.maxHP;
+			player.MP = player.maxMP;
+			player.SP = player.maxSP;
 			player.lust = 0;
 		}
 	}
