@@ -8,7 +8,6 @@
 	import draconis.locations.city.*;
 	
 	public class ButtonHandler {
-		public var nextBtn:Boolean = false;
 		//Button assignment variables
 		//Array now handles all the button number assignments [Void Director]
 		public var btnChoice:Array = new Array();
@@ -17,7 +16,7 @@
 			// constructor code
 		}
 		//Load Main Menu Eventlisteners
-		public  function initiMain():void {
+		public function initiMain():void {
 			Core.screens.main.btnNewGame.addEventListener(MouseEvent.MOUSE_DOWN, startNewGame);
 			Core.screens.main.btnLoadGame.addEventListener(MouseEvent.MOUSE_DOWN, loadData);
 			Core.screens.main.btnResume.addEventListener(MouseEvent.MOUSE_DOWN, resumeGame);
@@ -133,25 +132,23 @@
 		}
 		//Continue Game
 		private function contGame(e:MouseEvent):void {			
-			Core.screens.switchTo("Game");
-			if (Core.events.currEvent == 56) {
-				Story.mainStory(57);
-			}
+			
 		}
 		//Player attacks!
 		private function attack(e:MouseEvent):void {
+			Core.combat.playerAttack();
 		}
 		//Open the Skill Menu
 		private function skillMenu(e:MouseEvent):void {
-			Core.text.combatOutput("\rYou don't have any skills!", false);
+			Core.text.combatOutput("\rNo skills available.", false);
 		}
 		//Open the Magic Menu
 		private function magicMenu(e:MouseEvent):void {
-			Core.text.combatOutput("\rYou don't know any spells!", false);
+			Core.text.combatOutput("\rNo spells available.", false);
 		}
 		//Run from the fight like a pussy
 		private function runFrom(e:MouseEvent):void {
-			Core.text.combatOutput("\rYou could escape... if it was allowed.", false);
+			Core.text.combatOutput("\rYou cannot flee... coward.", false);
 		}
 		//Master button assign thingy ma-jig
 		//Writes text label for button, assigns the appropriate event number, and uses btnNumber to identify which button in the display to use [Void Director]

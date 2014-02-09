@@ -87,7 +87,7 @@
 				Core.screens.game.btnSaveGame.visible = true;
 				Core.text.gameOutput("You stand in the central road of the small village you call home. There are carts all over the place as merchants from all over the realm pass by on the nearby Merchant Road. You recognize several villagers you’ve grown up with.", true);
 				Core.text.gameOutput("\r\rYou spot the minotaur, Argo, working at the front of his blacksmith shop. Despite all the noise, you can clearly hear the ring of hammer hitting metal on the anvil.", false);
-				if (Core.flags.tyr_DayWithBrian == false || Core.flags.tyr_DayWithSasha == false) {
+				if (Core.flags.tyr_DayWithBrian == false && Core.flags.tyr_DayWithSasha == false) {
 					Core.text.gameOutput("\r\rYour friends Sasha and Brian, brother and sister, are hanging around a merchant’s cart while their father is speaking with the driver. They look pretty bored, so they might enjoy having your company to distract them.", false);
 					Core.buttons.button(2, "Friends", 19);
 				}
@@ -223,7 +223,7 @@
 					Core.text.gameOutput("\r\rYou assure her that you snuck in and out without being detected, proudly holding up your fishing pole. She laughs and helps you dig in the bank for worms to use as bait. The two of you sit down and you cast the line and begin the waiting game for your first bite. You and Sasha talk about the harvest and gossip about the latest rumors and such you’ve heard around the village. Sadly,the fish aren’t biting much but you two fill the time with jokes and other games.", false);
 					//PlaceHolder
 					Core.text.gameOutput("\r\rSasha takes off after the two of you have hung out for a few hours, saying she needs to check on her father and brother. You decide to hang around for a bit longer, despite the fact you haven't gotten a bite in awhile. As you wait, you start to get drowsy and, eventually, nod off to have a nap.", false);
-					Core.buttons.button(1, "Next", 0);
+					Core.buttons.button(1, "Next", 30);
 					//Core.text.gameOutput("\r\r“Hey, "+Player.name+"... I think we should try having sex.” Sasha says rather bluntly and completely out of the blue.", false);
 					//Core.text.gameOutput("\r\r“Uh… what?” You say, staring at her in disbelief, completely ignoring the gentle tug on your fishing line.", false);
 					//Core.text.gameOutput("\r\r“I mean, I’ve thought about it and I kinda like you, "+Player.name+". Come on, don’t tell you me you haven’t thought about?” Sasha said, her attention completely focused on you.", false);
@@ -259,7 +259,7 @@
 				if (Core.flags.tyr_DayWithSasha) {
 					Core.text.gameOutput("“Hell, why not? I mean… will this be a one time thing or..” You reply to her, deciding it was worth the try.", true);
 					Core.text.gameOutput("\r\r“Depends on how it goes but… I’d like it to be more than a one time thing.” Sasha responded, her blush darkening.", false);
-					Core.buttons.button(1, "Next", 0); 
+					Core.buttons.button(1, "Next", 28); 
 				}
 				if (Core.flags.tyr_DayWithBrian) {
 					Core.text.gameOutput("“Sure, why not?” You reply to him, deciding it was worth the try.", true);
@@ -412,12 +412,21 @@
 			}
 			//Enter the Ruins of Tyr
 			if (eventNum == 45) {
+				Core.flags.loc_tyrRuins = true;
 				TyrRuins.tyrRuins(5000);
 			}
 			//On the road to Vespyr... combat tutorial
 			if (eventNum == 46) {
 				Core.flags.loc_tyrRuins = false;
-				Core.text.gameOutput("Placeholder", true);
+				Core.text.gameOutput("Though you can’t see the city walls yet, you know you’re about an hour out from Vespyr. Your legs hurt a bit from walking so far and for so long, so a break sounds like a good idea. Luckily, there’s a nice shady tree near the road you can sit under and relax for a little bit. You leave your pack close by and sit down, legs stretched out in front of you. The warmth of the day is a comforting contrast to the desolate scene you left behind you. Feeling relaxed, your eyes drift closed, sending you into a light nap.", true);
+				Core.text.gameOutput("\r\rThe nap does not last long, for you are awakened by the sound of something rummaging in your bag and… squeaks? Thinking something is just looking for food in your bag, you open your eyes but move slowly as not to startle it. Sure enough, there is something rummaging through your pack and it, appears, to be a large rat of some sort. You immediately snatch your bag, fearing it has already gotten into what little food stores you possess. However, what tumbles out, shrieking in alarm, is not quite a rat.", false);
+				Core.text.gameOutput("\r\rYou’ve heard of Mus before, little creatures native to the Green Sea that resemble large field mice. This one in particular is rather thin looking and brown fur ragged, gender indiscernible. It draws a small knife… a shiv really, from the little sheath belted around its waist. The thief’s large, black eyes are focused on your bag and he seems intent on robbing you, chattering at you in a series of animal noises you can’t decipher. Though you are much larger than the Mus, that shiv could still seriously harm you if you’re hit in the wrong spot. Left with no choice, you put your fists up in an effort to defend yourself. ", false);
+				Core.buttons.button(1, "Fight!", 47);
+			}
+			//Start tutorial fight
+			if (eventNum == 47) {
+				Core.combat.startFight("Tutorial");
+				
 			}
 		}
 		

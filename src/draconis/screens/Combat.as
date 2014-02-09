@@ -16,6 +16,12 @@
 		private function initialize(e:Event):void {
 			Core.text.currText = "";
 			//Pane displays
+			pcPane.visible = false;
+			comp1Pane.visible = false;
+			comp2Pane.visible = false;
+			e1Pane.visible = false;
+			e2Pane.visible = false;
+			e3Pane.visible = false;
 			//Button visibility
 			btnContinue.visible = false;
 			//Disable button textfields

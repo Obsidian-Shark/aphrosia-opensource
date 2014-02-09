@@ -45,7 +45,7 @@
 			btnSlot2.visible = false;
 			btnSlot3.visible = false;
 			btnSlot4.visible = false;
-			btnResume.visible = true;
+			btnResume.visible = false;
 			btnMenu.visible = true;
 			Core.buttons.initiData();
 		}

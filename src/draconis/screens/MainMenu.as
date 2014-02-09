@@ -22,6 +22,7 @@
 			btnNewGame.visible = true;
 			btnLoadGame.visible = true;
 			btnCredits.visible = true;
+			btnResume.visible = false;
 			//Deactivate text fields
 			btnCredits.btnText.mouseEnabled = false;
 			btnLoadGame.btnText.mouseEnabled = false;

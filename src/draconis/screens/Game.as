@@ -22,6 +22,7 @@
 			pcPane.exp.text = "" + Player.exp + "";
 			//Toggle console input
 			//New structure for hacking/cheating the game will be implemented... later
+			consoleInput.visible = false;
 			//Name input field
 			nameInput.visible = false;
 			//Deactivate button textfields
