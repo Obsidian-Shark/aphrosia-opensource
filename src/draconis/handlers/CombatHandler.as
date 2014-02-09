@@ -85,7 +85,7 @@
 			//Run the Player's turn
 			player.runTurn();
 			//Sort the arry of other entities by agility scores
-			turnOrder.sort("agi", Array.DESCENDING | Array.NUMERIC);
+			turnOrder.sortOn("agi", Array.DESCENDING | Array.NUMERIC);
 			//Run each entities turn in the order set
 			for (var i:int; i < turnOrder.length; i++) {
 				turnOrder[i].runTurn();
