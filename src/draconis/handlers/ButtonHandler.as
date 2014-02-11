@@ -18,7 +18,7 @@
 		//Load Main Menu Eventlisteners
 		public function initiMain():void {
 			Core.screens.main.btnNewGame.addEventListener(MouseEvent.MOUSE_DOWN, startNewGame);
-			Core.screens.main.btnLoadGame.addEventListener(MouseEvent.MOUSE_DOWN, loadData);
+			//Core.screens.main.btnLoadGame.addEventListener(MouseEvent.MOUSE_DOWN, loadData);
 			Core.screens.main.btnResume.addEventListener(MouseEvent.MOUSE_DOWN, resumeGame);
 			Core.screens.main.btnCredits.addEventListener(MouseEvent.MOUSE_DOWN, credits);
 		}
@@ -27,7 +27,7 @@
 			Core.screens.game.btnInventory.addEventListener(MouseEvent.MOUSE_DOWN, loadInventory);
 			Core.screens.game.btnMainMenu.addEventListener(MouseEvent.MOUSE_DOWN, returnMenu);
 			Core.screens.game.btnProfile.addEventListener(MouseEvent.MOUSE_DOWN, loadProfile);
-			Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, saveData);
+			//Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, saveData);
 			//Loop that assigns eventlistner to the assigned button(s) [Void Director]
 			for (var i:int = 0; i < 15; i ++) {
 				var btnEventHandler:Function = onClick(i)
@@ -60,11 +60,12 @@
 			Core.screens.combat.btnMagic.addEventListener(MouseEvent.MOUSE_DOWN, magicMenu);
 			Core.screens.combat.btnEscape.addEventListener(MouseEvent.MOUSE_DOWN, runFrom);
 			Core.screens.combat.btnContinue.addEventListener(MouseEvent.MOUSE_DOWN, contGame);
+			Core.screens.combat.e1Target.addEventListener(MouseEvent.MOUSE_DOWN, target);
 		}
 		//Load Data Screen Eventlisteners
 		public function initiData():void {
-			Core.screens.data.slot1Save.addEventListener(MouseEvent.MOUSE_DOWN, saveSlot1);
-			Core.screens.data.slot1Load.addEventListener(MouseEvent.MOUSE_DOWN, loadSlot1);
+			//Core.screens.data.slot1Save.addEventListener(MouseEvent.MOUSE_DOWN, saveSlot1);
+			//Core.screens.data.slot1Load.addEventListener(MouseEvent.MOUSE_DOWN, loadSlot1);
 			Core.screens.data.btnResume.addEventListener(MouseEvent.MOUSE_DOWN, resumeGame);
 			Core.screens.data.btnMenu.addEventListener(MouseEvent.MOUSE_DOWN, returnMenu);
 		}
@@ -101,29 +102,19 @@
 		}
 		//Load Data Screen (Save a File)
 		private function saveData(e:MouseEvent):void {
-			Core.gameData.saveGame = true;
-			Core.gameData.loadGame = false;
 			Core.screens.switchTo("Data");
 		}
 		//Load Data Screen (Load a File)
 		private function loadData(e:MouseEvent):void {
-			Core.gameData.loadGame = true;
-			Core.gameData.saveGame = false;
 			Core.screens.switchTo("Data");
 			trace("Load Data Screen");
 		}
 		//Data Slot 1
 		private function saveSlot1(e:MouseEvent) {
-			Core.gameData.saveData1();
-			Core.gameData.saveFile1.flush();
-			Core.screens.data.saveCheck.text = "Game Saved";
-			trace(Core.gameData.saveFile1.data.pc_Name);
-			trace(Core.gameData.saveFile1.data.currEvent);
+			
 		}
 		private function loadSlot1(e:MouseEvent) {
-			Core.gameData.loadData1();
-			Core.screens.switchTo("Game");
-			Story.mainStory(Core.events.currEvent);
+			
 		}
 		//Resume Game
 		private function resumeGame(e:MouseEvent):void {
@@ -136,7 +127,7 @@
 		}
 		//Player attacks!
 		private function attack(e:MouseEvent):void {
-			Core.combat.playerAttack();
+			Core.text.combatOutput("Who do you wish to target?", true);
 		}
 		//Open the Skill Menu
 		private function skillMenu(e:MouseEvent):void {
@@ -149,6 +140,12 @@
 		//Run from the fight like a pussy
 		private function runFrom(e:MouseEvent):void {
 			Core.text.combatOutput("\rYou cannot flee... coward.", false);
+		}
+		//Player selects a target
+		private function target(e:MouseEvent):void {
+			if (e.target == Core.screens.combat.e1Target) Core.combat.player.attack(Core.combat.enemy1);
+			//if (e.target == Core.screens.combat.e2Pane) Core.combat.player.attack(Core.combat.enemy2);
+			//if (e.target == Core.screens.combat.e3Pane) Core.combat.player.attack(Core.combat.enemy3);
 		}
 		//Master button assign thingy ma-jig
 		//Writes text label for button, assigns the appropriate event number, and uses btnNumber to identify which button in the display to use [Void Director]

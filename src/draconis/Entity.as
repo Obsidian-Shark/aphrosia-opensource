@@ -26,9 +26,18 @@ package draconis {
 			
 		}
 		public function attack(target:Entity) {
+			if (target == Core.combat.enemy1) {
+				Core.text.combatOutput("\rYou attack " + Core.combat.enemy1.name + "!", false);
+				Core.combat.player.dealDamage(Core.combat.player.str, Core.combat.enemy1);
+			}
 			
 		}
-		public function takeDamage(amount:Number) {
+		private function dealDamage(amount:Number, target:Entity) {
+			if (target == Core.combat.enemy1) {
+				Core.combat.enemy1.HP -= amount;
+				Core.text.combatOutput("\rYou deal " + amount + " points of damage.", false);
+				Core.combat.refresh();
+			}
 			
 		}
 	}

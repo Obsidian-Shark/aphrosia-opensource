@@ -58,28 +58,29 @@
 		public static var hairLength:Number = 0;
 		//Body Slots
 		public static var breastSize:String = "";
-		public static var cumType:String = "";
-		public static var earType:String = "";
-		public static var feetType:String = "";
-		public static var legType:String = "";
-		public static var milkType:String = "";
-		public static var nipType:String = "";
-		public static var penisType:String = "";
-		public static var sheathType:String = "";
-		public static var skinType:String = "";
-		public static var tailType:String = "";
-		public static var tongueType:String = "";
-		public static var vagType:String = "";
-		public static var wingType:String = "";
+		public static var cumType:Object = { Normal:false };
+		public static var earType:Object = { Human:false };
+		public static var feetType:Object = { Human:false };
+		public static var legType:Object = { Biped:false };
+		public static var milkType:Object = { Normal:false };
+		public static var nipType:Object = { Normal:false };
+		public static var penisType:Object = { Human:false };
+		public static var sheathType:Object = { Foreskin:false };
+		public static var skinType:Object = { Flesh:false };
+		public static var tailType:Object = { None:false };
+		public static var tongueType:Object = { Human:false };
+		public static var vagType:Object = { Human:false };
+		public static var wingType:Object = { None:false };
 		//Coloration
-		public static var eyeColor:String = "";
-		public static var furColor:String = "";
-		public static var hairColor:String = "";
-		public static var scaleColor:String = "";
-		public static var skinColor:String = "";
+		public static var eyeColor:Object = { Brown:false };
+		public static var furColor:Object = {};
+		public static var hairColor:Object = { Brown:false };
+		public static var scaleColor:Object = { };
+		public static var skinColor:Object = { Fair:false };
 		//Misc
 		public static var isVirgin:Boolean = false;
 		//Equipment Slots
+		public static var accSlot:String = "";
 		public static var chestSlot:String = "";
 		public static var feetSlot:String = "";
 		public static var handSlot:String = "";
@@ -98,20 +99,20 @@
 			fertile = 75;
 			height = 72;
 			hairLength = 6;
-			hairColor = "brown";
-			eyeColor = "brown";
-			skinColor = "fair";
+			hairColor.Brown = true;
+			eyeColor.Brown = true;
+			skinColor.Fair = true;
 			//Body Slots
-			cumType = "normal";
-			earType = "human";
-			feetType = "human";
-			legType = "human";
-			milkType = "normal";
-			nipType = "normal";
-			penisType = "human";
-			sheathType = "foreskin";
-			skinType = "flesh";
-			tongueType = "human";
+			cumType.Normal = true;
+			earType.Human = true;
+			feetType.Human = true;
+			legType.Biped = true;
+			milkType.Normal = true;
+			nipType.Normal = true;
+			penisType.Human = true;
+			sheathType.Foreskin = true;
+			skinType.Flesh = true;
+			tongueType.Human = true;
 			//Body slot sizes
 			penisLength = 5.5;
 			penisGirth = 1.5;

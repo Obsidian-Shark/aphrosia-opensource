@@ -3,16 +3,18 @@
 	
 	import draconis.*;
 	
-	public class TyrRuins
-	{
+	public class TyrRuins {
+		public static var barContainer:Object = {Coins:true};
+		public static var cartContainer:Object = {Purse:true, Vial:true};
+		public static var corpseContainer:Object = {Key:true, Purse:true};
+		public static var strgRmContainer:Object = {Vial:true, Whiskey:true};
 		
-		public function TyrRuins()
-		{
+		public function TyrRuins() {
 			// constructor code
+						
 		}
 		
-		public static function tyrRuins(eventNum:Number)
-		{
+		public static function tyrRuins(eventNum:Number) {
 			Core.buttons.flushBtns();
 			if (eventNum == 5000) {
 				Core.text.gameOutput("Tyr is in absolute ruins. Most of the shops and buildings have been ransacked and burned down. Carts lay broken in the street amongst the corpses of horses, cattle, livestock, and people… some of which you recognize as villagers you’ve known all your life.", true);
@@ -41,8 +43,7 @@
 			//Check the bar
 			if (eventNum == 5003) {
 				Core.text.gameOutput("The bar itself is intact, though much of the wood it is made of is scorched, cracked, and burned. The bottles of alcohol and liquor on the burned shelves behind it are either gone or melted shards scattered all over the place.", true);
-				if (Core.flags.tyrRuins_BarHasCoins)
-				{
+				if (barContainer.Coins) {
 					Core.text.gameOutput("\r\rYou notice some sigils scattered about on the charred floor where the till used to be.", false);
 					Core.buttons.button(1, "Coins", 5004);
 				}
@@ -53,7 +54,7 @@
 			{
 				Core.text.gameOutput("You bend down to pick up the coins and pocket them. It’s not much but it’s something.", true);
 				Core.bag.sigils += 8;
-				Core.flags.tyrRuins_BarHasCoins = false;
+				barContainer.Coins = false;
 				Core.buttons.button(1, "Next", 5003);
 			}
 			//Leave the bar
@@ -74,11 +75,11 @@
 				}
 				else {
 					Core.text.gameOutput("\r\rThe tavern storage room sits open to you. Surprisingly, the interior is intact but the heat of the flames have spoiled the contents of the room. Despite the low light, you check around for anything salvageable to take with you.", false);
-					if (Core.flags.tyrRuins_StorageHasWhiskey) {
+					if (strgRmContainer.Whiskey) {
 						Core.text.gameOutput("\r\rYou notice there’s an intact bottle of liquid above your head. The label is faded but you can make out the word ‘Dragonbloom Whiskey’.", false);
 						Core.buttons.button(1, "Whiskey", 5009);
 					}
-					if (Core.flags.tyrRuins_StorageHasVial)	{
+					if (strgRmContainer.Vial)	{
 						Core.text.gameOutput("\r\rOn the floor, by your foot, you spot a small vial filled with a bright red liquid. You recognize this as a healing potion, albeit, a small one.", false);
 						Core.buttons.button(2, "Vial", 5010);
 					}
@@ -101,14 +102,14 @@
 			//Take the Dragonbloom Whiskey bottle
 			if (eventNum == 5009) {
 				Core.text.gameOutput("You grab the bottle of whiskey. Oddly enough, the glass of the bottle feels soothingly warm to the touch. You place it in your bag.", true);
-				Core.flags.tyrRuins_StorageHasWhiskey = false;
+				strgRmContainer.Whiskey = false;
 				Core.bag.keepsakes.push("Dragonbloom Whiskey");
 				Core.buttons.button(1, "Next", 5006);
 			}
 			//Take the health vial
 			if (eventNum == 5010) {
 				Core.text.gameOutput("You pick up the small health potion and stick it in your bag.", true);
-				Core.flags.tyrRuins_StorageHasVial = false;
+				strgRmContainer.Vial = false;
 				Core.bag.sm_HPvial += 1;
 				Core.buttons.button(1, "Next", 5006);
 			}
@@ -120,11 +121,11 @@
 			//Investigate the Corpse
 			if (eventNum == 5012) {
 				Core.text.gameOutput("You walk over to the far side of the tavern where part of the roof has collapsed. There’s a charred corpse caught underneath the fallen support beam, burned beyond all recognition. Whoever it was looked as if they had tried to escape.", true);
-				if (Core.flags.tyrRuins_CorpseHasSword)	{
+				if (corpseContainer.Sword)	{
 					Core.text.gameOutput("\r\rAmongst the ash and debris, you recognize the hilt of the sword Jorgen had hanging up on the wall. Now that you look, the sword is missing from the mount.", false);
 					Core.buttons.button(1, "Sword", 5013);
 				}
-				if (Core.flags.tyrRuins_CorpseHasKey){
+				if (corpseContainer.Key){
 					Core.text.gameOutput("\r\rHanging from a piece of broken wood is a key made of hammered iron, the leather thong it is tied to barely holding together.", false);
 					Core.buttons.button(2, "Key", 5014);
 				}
@@ -133,7 +134,7 @@
 			//Take the Sword
 			if (eventNum == 5013) {
 				Core.text.gameOutput("You grab the hilt and pull the sword out from under the ash and debris. Just as you thought, it is the sword Jorgen had on display, a remnant of his days as a mercenary in his youth. The blade is dull, pitted, and covered in rust. You slip it through your belt, since you don’t have a sheath for it.", true);
-				Core.flags.tyrRuins_CorpseHasSword = false;
+				corpseContainer.Sword = false;
 				Core.flags.player_HasOldSword = true;
 				Core.bag.keepsakes.push("Old Sword");
 				Core.buttons.button(1, "Next", 5012);
@@ -141,7 +142,7 @@
 			//Take the iron key
 			if (eventNum == 5014) {
 				Core.text.gameOutput("You snap the key off the leather strip. It has no distinguishing marks on it but it’s likely that it goes to something in the tavern.", true);
-				Core.flags.tyrRuins_CorpseHasKey = false;
+				corpseContainer.Key = false;
 				Core.flags.player_HasISTKey = true;
 				Core.bag.keepsakes.push("Iron key");
 				Core.buttons.button(1, "Next", 5012);
@@ -159,11 +160,11 @@
 			//Investigate the Cart
 			if (eventNum == 5017) {
 				Core.text.gameOutput("The cart you noticed seems to have some of its contents left though it’s not much and most of it isn’t much use to you. The horse that was tethered to the front is dead, flies already buzzing around the gaping wound in its throat. You ignore the grisly scene and focus on searching the cart’s remaining contents.", true);
-				if (Core.flags.tyrRuins_CartHasVial) {
+				if (cartContainer.Vial) {
 					Core.text.gameOutput("\r\rYou notice a small health potion wedged between two broken crates.", false);
 					Core.buttons.button(1, "Vial", 5018);
 				}
-				if (Core.flags.tyrRuins_CartHasPurse) {
+				if (cartContainer.Purse) {
 					Core.text.gameOutput("\r\rThere is a small coin purse half-buried in the mud.", false);
 					Core.buttons.button(2, "Purse", 5019);
 				}
@@ -172,14 +173,14 @@
 			//Take the health vial
 			if (eventNum == 5018) {
 				Core.text.gameOutput("With some effort, you pull the vial out without breaking it and place it in your bag.", true);
-				Core.flags.tyrRuins_CartHasVial = false;
+				cartContainer.Vial = false;
 				Core.bag.sm_HPvial += 1;
 				Core.buttons.button(1, "Next", 5017);
 			}
 			//Take the coin purse
 			if (eventNum == 5019) {
 				Core.text.gameOutput("You dig out the purse and check its contents, finding it has a few sigils inside, which you add to your own purse.", true);
-				Core.flags.tyrRuins_CartHasPurse = false;
+				cartContainer.Purse = false;
 				Core.bag.sigils += 15;
 				Core.buttons.button(1, "Next", 5017);
 			}
@@ -195,7 +196,7 @@
 			}
 			if (eventNum == 5022) {
 				Story.mainStory(46);
-			}		
-		}	
+			}
+		}
 	}
 }

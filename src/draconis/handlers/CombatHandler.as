@@ -8,7 +8,7 @@
 		public var player:Entity = new Entity;
 		private var comp1:Entity = new Entity;
 		private var comp2:Entity = new Entity;
-		private var enemy1:Entity = new Entity;
+		public var enemy1:Entity = new Entity;
 		private var enemy2:Entity = new Entity;
 		private var enemy3:Entity = new Entity;
 		private var turnOrder:Array = new Array();
@@ -91,9 +91,9 @@
 				turnOrder[i].runTurn();
 			}
 		}
-		public function playerAttack() {
-			player.attack(enemy1);
-			Core.text.combatOutput("You attack the " + enemy1.name + "!", true);
+		public function refresh() {
+			Core.screens.combat.pcPane.currHP.text = "" + Core.combat.player.HP + "";
+			Core.screens.combat.e1Pane.currHP.text = "" + Core.combat.enemy1.HP + "";
 		}
 	}
 }

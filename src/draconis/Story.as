@@ -4,6 +4,7 @@
 	import draconis.locations.city.*;
 	
 	public class Story {
+		public static var motherContainer:Object = { Amulet:true };
 
 		public function Story() {
 			// constructor code
@@ -142,7 +143,6 @@
 			if (eventNum == 14) {
 				Core.text.gameOutput("You decide there’s no point in skirting around the subject. With your luck, it would all go over the minotaur’s thick skull. The best course of action is to be completely direct with him. You tell him exactly what’s on your mind, laying a hand on him as you tell him that you are quite interested in him… in more ways than one.", true);
 				Player.aggro += 1;
-				if (Core.flags.switch_DevMode) Core.text.gameOutput("\r\rAggression +1", false);
 				mainStory(16);
 			}
 			//Skirt around the subject that you find Argo attractive
@@ -336,7 +336,7 @@
 			//Investigate the Kitchen
 			if (eventNum == 33) {
 				Core.text.gameOutput("You follow the bloody footprints into the kitchen and are met with a grisly scene. The floor, broken cabinets, and counters are smeared with blood. You can see footprints everywhere, like several people have been in and out of here recently. To your horror, you find your mother’s bloodied corpse slumped by the stove, her favored butcher’s knife clutched tightly in her hands. Her clothes have been ripped off and she looks pretty beaten up… but there’s no chance of saving her when you realize that her throats been slit. Whoever did this was very methodical… and they might come back. It’s best not to linger too long.", true);
-				if (Core.flags.tyr_DeadMomHasAmulet) {
+				if (motherContainer.Amulet) {
 					Core.text.gameOutput("\r\rYou notice that your mother still has the family heirloom pendant around her neck. It’s been in your family for generations. You think about taking it, but you hesitate, unwilling to touch your mother’s corpse. What will you do?", false);
 					Core.buttons.button(1, "Take", 34);
 				}
@@ -345,7 +345,7 @@
 			//Take the amulet from Player's dead mom
 			if (eventNum == 34) {
 				Core.text.gameOutput("You take a deep breath, carefully kneeling next to her and untying the soaked amulet from around her throat. Her body is still warm but you try not to think about how long she’s actually been dead or what was done to her before hand. You wipe the amulet off on the edge of your tunic. The pendant itself is simply a piece of hammered iron with a sheaf of wheat and a sickle stamped on it. Your parents would tell you stories of how it brought luck to your family during times of tragedy and great need. Perhaps it will bring you the same luck. For now, you pocket it and back away from your mother, returning to the smashed den.", true);
-				Core.flags.tyr_DeadMomHasAmulet = false;
+				motherContainer.Amulet = false;
 				Core.bag.keepsakes.push("Family Amulet");
 				Core.buttons.button(1, "Next", 32);
 			}

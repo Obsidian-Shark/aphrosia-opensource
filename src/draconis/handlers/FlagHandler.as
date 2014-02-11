@@ -26,21 +26,11 @@
 		public var vespyr_RescueTheDruggedCentaurWhore = false;
 		//Container Checks
 		public var tyr_DeadMomHasAmulet:Boolean = true;
-		public var tyrRuins_BarHasCoins:Boolean = true;
-		public var tyrRuins_CorpseHasSword:Boolean = true;
-		public var tyrRuins_CorpseHasKey:Boolean = true;
-		public var tyrRuins_StorageHasVial:Boolean = true;
-		public var tyrRuins_StorageHasWhiskey:Boolean = true;
-		public var tyrRuins_CartHasPurse:Boolean = true;
-		public var tyrRuins_CartHasVial:Boolean = true;
 		//Door Checks
 		public var tyrRuins_StorageDoorLocked:Boolean = true;
 		//Inventory Checks
 		public var player_HasISTKey:Boolean = false;
 		public var player_HasOldSword:Boolean = false;
-		//Location Checks
-		public var tyrRuins:Boolean = false;
-		
 	}
 	
 }

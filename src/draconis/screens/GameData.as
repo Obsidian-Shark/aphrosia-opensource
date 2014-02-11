@@ -16,10 +16,7 @@
 		private function initialize(e:Event):void {
 			//Set output fields
 			saveCheck.text = "";
-			if (Core.gameData.saveFile1.data.exists) {
-				slot1Descript.text = ""+Core.gameData.saveFile1.data.pc_Name+"";
-			}
-			else slot1Descript.text = "Empty";
+			slot1Descript.text = "Empty";
 			slot2Descript.text = "Empty";
 			slot3Descript.text = "Empty";
 			slot4Descript.text = "Empty";
