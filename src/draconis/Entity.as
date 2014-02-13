@@ -23,31 +23,22 @@ package draconis {
 		public function Entity() {
 			//constructor code
 		}
-		//Sets turn order in array
+		//Runs Entity's turn
 		public function runTurn() {
-			attack(Core.combat.player);
+			this.attack(Core.combat.player);
 		}
 		public function attack(target:Entity) {
-			if (target == Core.combat.player) {
-				Core.combat.enemy1.dealDamage(Core.combat.enemy1.str, Core.combat.player);
-				if (Core.combat.encounter == "Tutorial") {
-					Tutorial.attackText();
-				}
-			}
-			else if (target == Core.combat.enemy1) {
-				Core.combat.player.dealDamage(Core.combat.player.str, Core.combat.enemy1);
-			}
+			this.dealDamage(this.str, target);
+			Core.text.combatOutput("\r"+this.name + " attacks " + target.name + "!", false);			
+		}
+		public function pcAttack(target:Entity) {
+			Core.text.combatOutput("\r" + Core.combat.player.name + " attacks " + target.name + "!", false);
+			Core.combat.player.dealDamage(Core.combat.player.str, target);
+			Core.combat.runAllTurns();
 		}
 		private function dealDamage(amount:Number, target:Entity) {
-			if (target == Core.combat.player) {
-				Core.combat.player.HP -= amount;
-				Core.text.combatOutput("\rYou take " + amount + " points of damage.", false);
-			}
-			else if (target == Core.combat.enemy1) {
-				Core.combat.enemy1.HP -= amount;
-				Core.text.combatOutput("\r" + Core.combat.enemy1.name + " takes " + amount + " points of damage.", false);
-				Core.combat.runAllTurns();
-			}
+			target.HP -= amount;
+			Core.text.combatOutput("\r" + target.name + " takes " + amount + " points of damage.", false);
 			Core.combat.refresh();
 		}
 	}

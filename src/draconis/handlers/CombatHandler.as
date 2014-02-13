@@ -56,31 +56,14 @@
 			//flushEncountData();
 			switch(encounter) {
 				case "Tutorial":
-					enemy1.name = "Mus Scavenger";
-					enemy1.active = true;
-					enemy1.str = Tutorial.str;
-					enemy1.endr = Tutorial.endr;
-					enemy1.dex = Tutorial.dex;
-					enemy1.agi = Tutorial.agi;
-					enemy1.wis = Tutorial.wis;
-					enemy1.maxHP = Math.round(enemy1.endr * 2.5);
-					enemy1.maxMP = Math.round(enemy1.wis * 1.5);
-					enemy1.maxSP = Math.round(enemy1.str * 1.5);
-					enemy1.HP = enemy1.maxHP;
-					enemy1.MP = enemy1.maxMP;
-					enemy1.SP = enemy1.maxSP;
-					enemy1.lust = 0;
-					Core.screens.combat.e1Pane.Name.text = "" + enemy1.name + "";
-					Core.screens.combat.e1Pane.currHP.text = "" + enemy1.HP + "";
-					Core.screens.combat.e1Pane.currMP.text = "" + enemy1.MP + "";
-					Core.screens.combat.e1Pane.currSP.text = "" + enemy1.SP + "";
-					Core.screens.combat.e1Pane.visible = true;
+					Tutorial.load();
+					loadEPane1();
 					Tutorial.startText();
 				break;
 			}
 			encounter = "";
 		}
-		//Run the turn for all entities and the Player
+		//Run the turn for all entities... minus the Player.
 		public function runAllTurns() {
 			//Sort the arry of other entities by agility scores
 			turnOrder.sortOn("agi", Array.DESCENDING | Array.NUMERIC);
@@ -89,12 +72,21 @@
 				turnOrder[i].runTurn();
 			}
 		}
+		private function loadEPane1() {
+			Core.screens.combat.e1Pane.Name.text = "" + enemy1.name + "";
+			Core.screens.combat.e1Pane.currHP.text = "" + enemy1.HP + "";
+			Core.screens.combat.e1Pane.currMP.text = "" + enemy1.MP + "";
+			Core.screens.combat.e1Pane.currSP.text = "" + enemy1.SP + "";
+			Core.screens.combat.e1Pane.visible = true;
+		}
 		public function refresh() {
 			if (Core.combat.player.HP < 0) {
 				Core.combat.player.HP = 0;
+				//playerDefeat();
 			}
 			if (Core.combat.enemy1.HP < 0) {
 				Core.combat.enemy1.HP = 0;
+				//enemy1Defeat();
 			}
 			Core.screens.combat.pcPane.currHP.text = "" + Core.combat.player.HP + "";
 			Core.screens.combat.e1Pane.currHP.text = "" + Core.combat.enemy1.HP + "";
