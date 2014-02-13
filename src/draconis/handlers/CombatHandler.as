@@ -22,8 +22,6 @@
 			Core.screens.switchTo("Combat");
 			loadPC();
 			loadEncounter();
-			setTurns();
-			runAllTurns();
 		}
 		//Plugs in data for turn array... I think
 		private function setTurns() {
@@ -35,14 +33,15 @@
 		}
 		private function loadPC() {
 			player.name = "" + Player.name + "";
+			player.active = true;
 			player.str = Player.str;
 			player.endr = Player.endr;
 			player.dex = Player.dex;
 			player.agi = Player.agi;
 			player.wis = Player.wis;
-			player.maxHP = player.endr * 2.5;
-			player.maxMP = player.wis * 1.5;
-			player.maxSP = player.str * 1.5;
+			player.maxHP = Math.round(player.endr * 2.5);
+			player.maxMP = Math.round(player.wis * 1.5);
+			player.maxSP = Math.round(player.str * 1.5);
 			player.HP = player.maxHP;
 			player.MP = player.maxMP;
 			player.SP = player.maxSP;
@@ -58,14 +57,15 @@
 			switch(encounter) {
 				case "Tutorial":
 					enemy1.name = "Mus Scavenger";
+					enemy1.active = true;
 					enemy1.str = Tutorial.str;
 					enemy1.endr = Tutorial.endr;
 					enemy1.dex = Tutorial.dex;
 					enemy1.agi = Tutorial.agi;
 					enemy1.wis = Tutorial.wis;
-					enemy1.maxHP = enemy1.endr * 2.5;
-					enemy1.maxMP = enemy1.wis * 1.5;
-					enemy1.maxSP = enemy1.str * 1.5;
+					enemy1.maxHP = Math.round(enemy1.endr * 2.5);
+					enemy1.maxMP = Math.round(enemy1.wis * 1.5);
+					enemy1.maxSP = Math.round(enemy1.str * 1.5);
 					enemy1.HP = enemy1.maxHP;
 					enemy1.MP = enemy1.maxMP;
 					enemy1.SP = enemy1.maxSP;
@@ -82,8 +82,6 @@
 		}
 		//Run the turn for all entities and the Player
 		public function runAllTurns() {
-			//Run the Player's turn
-			player.runTurn();
 			//Sort the arry of other entities by agility scores
 			turnOrder.sortOn("agi", Array.DESCENDING | Array.NUMERIC);
 			//Run each entities turn in the order set
@@ -92,6 +90,12 @@
 			}
 		}
 		public function refresh() {
+			if (Core.combat.player.HP < 0) {
+				Core.combat.player.HP = 0;
+			}
+			if (Core.combat.enemy1.HP < 0) {
+				Core.combat.enemy1.HP = 0;
+			}
 			Core.screens.combat.pcPane.currHP.text = "" + Core.combat.player.HP + "";
 			Core.screens.combat.e1Pane.currHP.text = "" + Core.combat.enemy1.HP + "";
 		}
