@@ -28,8 +28,8 @@ package draconis {
 			this.attack(Core.combat.player);
 		}
 		public function attack(target:Entity) {
-			this.dealDamage(this.str, target);
-			Core.text.combatOutput("\r"+this.name + " attacks " + target.name + "!", false);			
+			Core.text.combatOutput("\r"+this.name + " attacks " + target.name + "!", false);
+			this.dealDamage(this.str, target);			
 		}
 		public function pcAttack(target:Entity) {
 			Core.text.combatOutput("\r" + Core.combat.player.name + " attacks " + target.name + "!", false);

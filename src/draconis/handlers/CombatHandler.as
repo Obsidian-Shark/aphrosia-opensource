@@ -25,11 +25,11 @@
 		}
 		//Plugs in data for turn array... I think
 		private function setTurns() {
-			turnOrder.push(comp1);
-			turnOrder.push(comp2);
-			turnOrder.push(enemy1);
-			turnOrder.push(enemy2);
-			turnOrder.push(enemy3);
+			if(Core.combat.comp1.active) turnOrder.push(comp1);
+			if(Core.combat.comp2.active) turnOrder.push(comp2);
+			if (Core.combat.enemy1.active) turnOrder.push(enemy1);
+			if (Core.combat.enemy2.active) turnOrder.push(enemy2);
+			if(Core.combat.enemy3.active) turnOrder.push(enemy3);
 		}
 		private function loadPC() {
 			player.name = "" + Player.name + "";
@@ -59,6 +59,7 @@
 					Tutorial.load();
 					loadEPane1();
 					Tutorial.startText();
+					setTurns();
 				break;
 			}
 			encounter = "";

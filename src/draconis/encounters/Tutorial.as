@@ -5,8 +5,8 @@ package draconis.encounters {
 	
 	public class Tutorial {
 		//Stats for Mus Scavenger
-		public static var str:Number = 10;
-		public static var endr:Number = 10;
+		public static var str:Number = 7;
+		public static var endr:Number = 5;
 		public static var dex:Number = 12;
 		public static var agi:Number = 12;
 		public static var wis:Number = 5;
