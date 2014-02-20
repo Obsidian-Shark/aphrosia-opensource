@@ -4,7 +4,7 @@
 	 * ...
 	 * @author Obsidian Shark
 	 */
-	public class FlagHandler {
+	dynamic public class FlagHandler {
 		//Developer Mode toggle
 		public var switch_DevMode:Boolean = false;
 		//Active Game check

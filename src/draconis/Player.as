@@ -2,7 +2,7 @@
 	
 	import draconis.Core;
 	
-	dynamic public class Player {
+	public class Player {
 		//Base Stats
 		public static var name:String = "";
 		public static var gender:int = 0;

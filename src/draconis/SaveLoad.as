@@ -11,12 +11,24 @@
 		public function SaveLoad() {
 			// constructor code
 		}
-		public function saveData(slot:String):Boolean {
+		public static function saveData(slot:String):Boolean {
 			var saveFile = SharedObject.getLocal(slot);
+			saveFile.data.exists = true;
+			saveFile.data.player = Player.concat();
+			saveFile.data.flags = Core.flags.concat();
+			saveFile.data.events = Core.events.concat();
+			if (saveFile.flush()) return true;
 			return false;
 		}
-		public function loadData(slot:String):Boolean {
+		public static function loadData(slot:String):Boolean {
 			var saveFile = SharedObject.getLocal(slot);
+			if (saveFile.data.exists) {
+				Player = saveFile.data.player.concat();
+				Core.flags = saveFile.data.flags.concat();
+				Core.events = saveFile.data.events.concat();
+				saveFile.flush();
+				return true;
+			}
 			return false;
 		}
 	}

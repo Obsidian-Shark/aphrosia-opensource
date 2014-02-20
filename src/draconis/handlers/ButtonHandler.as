@@ -27,7 +27,7 @@
 			Core.screens.game.btnInventory.addEventListener(MouseEvent.MOUSE_DOWN, loadInventory);
 			Core.screens.game.btnMainMenu.addEventListener(MouseEvent.MOUSE_DOWN, returnMenu);
 			Core.screens.game.btnProfile.addEventListener(MouseEvent.MOUSE_DOWN, loadProfile);
-			//Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, saveData);
+			Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, dataScreen);
 			//Loop that assigns eventlistner to the assigned button(s) [Void Director]
 			for (var i:int = 0; i < 15; i ++) {
 				var btnEventHandler:Function = onClick(i)
@@ -100,21 +100,16 @@
 			Core.screens.switchTo("Inventory");
 			trace("Load Inventory");
 		}
-		//Load Data Screen (Save a File)
-		private function saveData(e:MouseEvent):void {
+		//Load Data Screen
+		private function dataScreen(e:MouseEvent):void {
 			Core.screens.switchTo("Data");
-		}
-		//Load Data Screen (Load a File)
-		private function loadData(e:MouseEvent):void {
-			Core.screens.switchTo("Data");
-			trace("Load Data Screen");
 		}
 		//Data Slot 1
 		private function saveSlot1(e:MouseEvent) {
-			
+			SaveLoad.saveData("one");		
 		}
 		private function loadSlot1(e:MouseEvent) {
-			
+			SaveLoad.loadData("one");
 		}
 		//Resume Game
 		private function resumeGame(e:MouseEvent):void {
