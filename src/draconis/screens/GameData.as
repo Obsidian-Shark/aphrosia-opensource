@@ -1,9 +1,15 @@
 ﻿package draconis.screens {
 	
+	/**
+	 * ...
+	 * @author Obsidian Shark...
+	 */
+	
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.net.SharedObject;
-	import draconis.Core;
+	
+	import draconis.*;
 	
 	
 	public class GameData extends MovieClip {

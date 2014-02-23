@@ -1,9 +1,13 @@
 ﻿package draconis.screens {
 	
+	/**
+	 * ...
+	 * @author Obsidian Shark...
+	 */
+	
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
-	import draconis.*;
 	
 	import draconis.*;
 	
@@ -17,9 +21,9 @@
 		}
 		private function initialize(e:Event):void {
 			Core.flags.activeGame = true;
-			pcPane.nameText.text = "" +Player.name + "";
-			pcPane.level.text = "" + Player.lvl +"";
-			pcPane.exp.text = "" + Player.exp + "";
+			pcPane.nameText.text = "" +Core.pc.name + "";
+			pcPane.level.text = "" + Core.pc.lvl +"";
+			pcPane.exp.text = "" + Core.pc.exp + "";
 			//Toggle console input
 			//New structure for hacking/cheating the game will be implemented... later
 			consoleInput.visible = false;
@@ -73,8 +77,8 @@
 			Core.buttons.initiGame();
 		}
 		public function refreshScreen() {
-			pcPane.level.text = "" + Player.lvl + "";
-			pcPane.exp.text = "" +Player.exp + "";
+			pcPane.level.text = "" + Core.pc.lvl + "";
+			pcPane.exp.text = "" +Core.pc.exp + "";
 		}
 		
 	}

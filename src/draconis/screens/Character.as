@@ -14,14 +14,14 @@
 			// constructor code
 			this.addEventListener(Event.ADDED_TO_STAGE, initialize);
 		}
-		private function initialize(e:Event):void {
+		private function initialize(e:Event) {
 			//Set output fields
-			strOutput.text = "" + Player.str + "";
-			endrOutput.text = ""+Player.endr + "";
-			dexOutput.text = "" + Player.dex + "";
-			agiOutput.text = "" + Player.agi + "";
-			wisOutput.text = "" + Player.wis + "";
-			chrsOutput.text = "" + Player.chrs + "";
+			strOutput.text = "" + Core.pc.str + "";
+			endrOutput.text = ""+ Core.pc.endr + "";
+			dexOutput.text = "" + Core.pc.dex + "";
+			agiOutput.text = "" + Core.pc.agi + "";
+			wisOutput.text = "" + Core.pc.wis + "";
+			chrsOutput.text = "" + Core.pc.chrs + "";
 			//Deactivate button textfields
 			btnReturn.btnText.mouseEnabled = false;
 			//Set default button labels
@@ -29,10 +29,6 @@
 			//Default button visibility
 			btnReturn.visible = true;
 			Core.buttons.initiProfile();
-			appearDescript();
-		}
-		private function appearDescript():void {
-			Core.text.descriptOutput("You are a human " + Player.pcSex()+", standing at "+Player.pcHeight()+" tall. You have "+Player.hairLength+" inch long, "+Player.hairColor+" hair and "+Player.eyeColor+" eyes. Your [muscle] body is covered in "+Player.skinColor+" "+Player.skinType+"", true)
 		}
 	}
 	

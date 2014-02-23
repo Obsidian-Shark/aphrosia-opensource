@@ -24,14 +24,14 @@ package draconis {
 			//constructor code
 		}
 		//Runs Entity's turn
-		public function runTurn() {
+		public function runTurn():void {
 			this.attack(Core.combat.player);
 		}
-		public function attack(target:Entity) {
+		public function attack(target:Entity):void {
 			Core.text.combatOutput("\r"+this.name + " attacks " + target.name + "!", false);
 			this.dealDamage(this.str, target);			
 		}
-		public function pcAttack(target:Entity) {
+		public function pcAttack(target:Entity):void {
 			Core.text.combatOutput("\r" + Core.combat.player.name + " attacks " + target.name + "!", false);
 			Core.combat.player.dealDamage(Core.combat.player.str, target);
 			Core.combat.runAllTurns();

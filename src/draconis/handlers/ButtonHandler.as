@@ -1,5 +1,10 @@
 ﻿package draconis.handlers {
 	
+	/**
+	 * ...
+	 * @author Obsidian Shark...
+	 */
+	
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	import flash.ui.Mouse;
@@ -18,7 +23,7 @@
 		//Load Main Menu Eventlisteners
 		public function initiMain():void {
 			Core.screens.main.btnNewGame.addEventListener(MouseEvent.MOUSE_DOWN, startNewGame);
-			//Core.screens.main.btnLoadGame.addEventListener(MouseEvent.MOUSE_DOWN, loadData);
+			//Core.screens.main.btnLoadGame.addEventListener(MouseEvent.MOUSE_DOWN, dataScreen);
 			Core.screens.main.btnResume.addEventListener(MouseEvent.MOUSE_DOWN, resumeGame);
 			Core.screens.main.btnCredits.addEventListener(MouseEvent.MOUSE_DOWN, credits);
 		}
@@ -27,7 +32,7 @@
 			Core.screens.game.btnInventory.addEventListener(MouseEvent.MOUSE_DOWN, loadInventory);
 			Core.screens.game.btnMainMenu.addEventListener(MouseEvent.MOUSE_DOWN, returnMenu);
 			Core.screens.game.btnProfile.addEventListener(MouseEvent.MOUSE_DOWN, loadProfile);
-			Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, dataScreen);
+			//Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, dataScreen);
 			//Loop that assigns eventlistner to the assigned button(s) [Void Director]
 			for (var i:int = 0; i < 15; i ++) {
 				var btnEventHandler:Function = onClick(i)
@@ -64,8 +69,8 @@
 		}
 		//Load Data Screen Eventlisteners
 		public function initiData():void {
-			//Core.screens.data.slot1Save.addEventListener(MouseEvent.MOUSE_DOWN, saveSlot1);
-			//Core.screens.data.slot1Load.addEventListener(MouseEvent.MOUSE_DOWN, loadSlot1);
+			Core.screens.data.slot1Save.addEventListener(MouseEvent.MOUSE_DOWN, saveSlot1);
+			Core.screens.data.slot1Load.addEventListener(MouseEvent.MOUSE_DOWN, loadSlot1);
 			Core.screens.data.btnResume.addEventListener(MouseEvent.MOUSE_DOWN, resumeGame);
 			Core.screens.data.btnMenu.addEventListener(MouseEvent.MOUSE_DOWN, returnMenu);
 		}
@@ -110,6 +115,7 @@
 		}
 		private function loadSlot1(e:MouseEvent) {
 			SaveLoad.loadData("one");
+			Core.screens.switchTo("Game");
 		}
 		//Resume Game
 		private function resumeGame(e:MouseEvent):void {

@@ -4,6 +4,7 @@
 	 * ...
 	 * @author Obsidian Shark
 	 */
+	
 	dynamic public class FlagHandler {
 		//Developer Mode toggle
 		public var switch_DevMode:Boolean = false;
