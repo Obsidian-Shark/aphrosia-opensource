@@ -1,5 +1,10 @@
 ﻿package draconis.handlers  {
 	
+	/**
+	 * ...
+	 * @author Obsidian Shark...
+	 */
+	
 	public class BagHandler {
 		//Healing vials
 		public var sm_HPvial:int = 0;

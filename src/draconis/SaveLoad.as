@@ -37,6 +37,8 @@
 			addStaticObject("flags", saveFile.data, Core.flags);
 			//save all EventHandler class variables
 			addStaticObject("events", saveFile.data, Core.events);
+			//Save container data
+			addStaticObject("container", saveFile.data, Core.container);
 			trace("save data", saveFile.data);
 			if (saveFile.flush()) return true;
 			return false;
@@ -57,6 +59,8 @@
 				loadStaticObject("flags", Core.flags, saveFile.data);
 				//Load EventHandler data from saveFile.data
 				loadStaticObject("events", Core.events, saveFile.data);
+				//Load ContainerHandler data from saveFile.data
+				loadStaticObject("container", Core.container, saveFile.data);
 				saveFile.flush();
 				return true;
 			}

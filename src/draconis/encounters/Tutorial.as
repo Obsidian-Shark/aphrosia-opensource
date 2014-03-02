@@ -19,6 +19,7 @@ package draconis.encounters {
 			//constructor code
 		}
 		public static function load():void {
+			//Load data into Enemy Slot 1
 			Core.combat.enemy1.name = "Mus Scavenger";
 			Core.combat.enemy1.active = true;
 			Core.combat.enemy1.str = str;
@@ -39,8 +40,9 @@ package draconis.encounters {
 			Core.text.combatOutput("\r\r During combat, you have several options open to you. For now, you can only use your base attack. When you attack, click the portrait of your target to deal damage.", false);
 		}
 		public static function defeatText():void {
-			Core.text.combatOutput("Overwhelmed, the scrawny mus drops their weapon and runs off, squeaking in fear. Unfortunately, the Mus has no loot for you but, in general, the beasts and hostiles you encounter will drop money and other items.", true);
+			Core.text.combatOutput("\r\rOverwhelmed, the scrawny mus drops their weapon and runs off, squeaking in fear. Unfortunately, the Mus has no loot for you but, in general, the beasts and hostiles you encounter will drop money and other items.", false);
 			Core.text.combatOutput("\r\rYou are free to continue on your way now.", false);
+			Core.screens.combat.exitCombat(48);
 		}
 	}
 	

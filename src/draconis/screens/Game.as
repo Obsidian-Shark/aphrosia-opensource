@@ -70,9 +70,9 @@
 			btn14.btnText.text = "Button 14";
 			btn15.btnText.text = "Button 15";
 			//Default button visibility
-			btnProfile.visible = true;
-			btnInventory.visible = true;
-			btnSaveGame.visible = true;
+			btnProfile.visible = false;
+			btnInventory.visible = false;
+			btnSaveGame.visible = false;
 			btnMainMenu.visible = true;
 			Core.buttons.initiGame();
 		}

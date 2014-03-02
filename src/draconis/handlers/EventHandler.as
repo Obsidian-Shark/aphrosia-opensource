@@ -22,6 +22,7 @@
 			Core.screens.game.btnSaveGame.visible = false;
 			Core.screens.game.pcPane.visible = false;
 			Core.bag.flushInven();
+			Core.flags.resetFlags();
 			Story.mainStory(1);
 		}
 		//Start a new character as a female

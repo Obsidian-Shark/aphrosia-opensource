@@ -1,5 +1,9 @@
-﻿package draconis.screens
-{
+﻿package draconis.screens {
+	
+	/**
+	 * ...
+	 * @author Obsidian Shark...
+	 */
 
 	import flash.display.MovieClip;
 	import flash.events.Event;

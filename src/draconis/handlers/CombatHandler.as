@@ -6,9 +6,8 @@
 	 * @author Void Director...
 	 */
 	
-	import draconis.*;;
+	import draconis.*;
 	import draconis.encounters.*;
-	import flash.net.drm.VoucherAccessInfo;
 	
 	public class CombatHandler 	{
 		public var player:Entity = new Entity;
@@ -88,59 +87,41 @@
 			Core.screens.combat.e1Pane.visible = true;
 		}
 		public function refresh():void {
-			if (Core.combat.player.HP < 0) {
-				Core.combat.player.HP = 0;
-				gameOver();
-			}
-			if (Core.combat.enemy1.HP < 0) {
-				Core.combat.enemy1.HP = 0;
-				enemyDefeat();
-			}
 			Core.screens.combat.pcPane.currHP.text = "" + Core.combat.player.HP + "";
 			Core.screens.combat.e1Pane.currHP.text = "" + Core.combat.enemy1.HP + "";
 		}
 		//Enemy is defeated and removed from turnOrder array
 		private function enemyDefeat():void {
-			if (Core.combat.enemy1.HP == 0) {
-				Core.combat.turnOrder.splice(enemy1);
-			}
-			if (Core.combat.enemy2.HP == 0) {
-				Core.combat.turnOrder.splice(enemy2);
-			}
-			if (Core.combat.enemy3.HP == 0) {
-				Core.combat.turnOrder.splice(enemy3);
+			var enemy:Entity;
+			for (var i:int = 1; i < 4; i += 1) {
+				enemy = this["enemy" + i];
+				if (enemy.HP <= 0) {
+					this.turnOrder.splice(this.turnOrder.indexOf(enemy));
+				}
 			}
 		}
 		//Companion is defeated and removed from turnOrder array
 		private function compDefeat():void {
-			if (Core.combat.comp1.HP == 0) {
-				Core.combat.turnOrder.splice(comp1);
+			var comp:Entity;
+			for (var i:int = 1; i < 4; i += 1) {
+				comp = this["comp" + i];
+				if (comp.HP <= 0) {
+					this.turnOrder.splice(this.turnOrder.indexOf(comp));
+				}
 			}
-			if (Core.combat.comp2.HP == 0) {
-				Core.combat.turnOrder.splice(comp2);
-			}
+		}
+		public function killTarget(target:Entity):void {
+			target.HP = 0;
+			turnOrder.splice(target);
+			endCombat();
 		}
 		//Player is defeated... trigger game over
 		private function gameOver():void {
 			
 		}
-		//Search turnOrder for enemy turns or not
-		//if there are no enemies in the turnOrder, the encounter is over
-		private function searchTurns(check:String):Boolean {
-			for (var i:int = 0; i < turnOrder.length; i++) {
-				if (turnOrder[i].indexOf(check) > -1) {
-					return true;
-					//if true, continue combat
-				}
-			}
-			//if false, trigger the end of combat
-			return false;
-			endCombat();
-		}
 		private function endCombat():void {
-			if (Core.combat.encounter == "Tutorial") {
-				Tutorial.defeatText();
-			}
+			Tutorial.defeatText();
+			trace("Combat is over");
 		}
 	}
 }

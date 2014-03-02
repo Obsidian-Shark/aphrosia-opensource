@@ -43,6 +43,14 @@
 			btnContinue.btnText.text = "Continue";
 			Core.buttons.initiCombat();
 		}
+		public function exitCombat(eventNum:Number):void {
+			Core.events.currEvent = eventNum;
+			btnAttack.visible = false;
+			btnSkills.visible = false;
+			btnMagic.visible = false;
+			btnEscape.visible = false;
+			btnContinue.visible = true;
+		}
 	}
 	
 }

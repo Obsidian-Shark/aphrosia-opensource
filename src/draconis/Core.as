@@ -15,6 +15,7 @@
 		public static var bag:BagHandler = new BagHandler();
 		public static var buttons:ButtonHandler = new ButtonHandler();
 		public static var combat:CombatHandler = new CombatHandler();
+		public static var container:ContainerHandler = new ContainerHandler();
 		public static var events:EventHandler = new EventHandler();
 		public static var flags:FlagHandler = new FlagHandler();
 		public static var gameData:SaveLoad = new SaveLoad();

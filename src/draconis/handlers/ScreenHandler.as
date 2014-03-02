@@ -1,5 +1,10 @@
 ﻿package draconis.handlers {
 	
+	/**
+	 * ...
+	 * @author Obsidian Shark...
+	 */
+	
 	import flash.display.Sprite;
 	import flash.display.MovieClip;
 	import draconis.screens.*;

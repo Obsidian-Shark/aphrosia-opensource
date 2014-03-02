@@ -3,6 +3,7 @@
 	/**
 	 * ...
 	 * @author Obsidian Shark...
+	 * @author Void Director...
 	 */
 	
 	import flash.display.MovieClip;
@@ -23,7 +24,7 @@
 		//Load Main Menu Eventlisteners
 		public function initiMain():void {
 			Core.screens.main.btnNewGame.addEventListener(MouseEvent.MOUSE_DOWN, startNewGame);
-			//Core.screens.main.btnLoadGame.addEventListener(MouseEvent.MOUSE_DOWN, dataScreen);
+			Core.screens.main.btnLoadGame.addEventListener(MouseEvent.MOUSE_DOWN, dataScreen);
 			Core.screens.main.btnResume.addEventListener(MouseEvent.MOUSE_DOWN, resumeGame);
 			Core.screens.main.btnCredits.addEventListener(MouseEvent.MOUSE_DOWN, credits);
 		}
@@ -32,7 +33,7 @@
 			Core.screens.game.btnInventory.addEventListener(MouseEvent.MOUSE_DOWN, loadInventory);
 			Core.screens.game.btnMainMenu.addEventListener(MouseEvent.MOUSE_DOWN, returnMenu);
 			Core.screens.game.btnProfile.addEventListener(MouseEvent.MOUSE_DOWN, loadProfile);
-			//Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, dataScreen);
+			Core.screens.game.btnSaveGame.addEventListener(MouseEvent.MOUSE_DOWN, dataScreen);
 			//Loop that assigns eventlistner to the assigned button(s) [Void Director]
 			for (var i:int = 0; i < 15; i ++) {
 				var btnEventHandler:Function = onClick(i)
@@ -65,7 +66,6 @@
 			Core.screens.combat.btnMagic.addEventListener(MouseEvent.MOUSE_DOWN, magicMenu);
 			Core.screens.combat.btnEscape.addEventListener(MouseEvent.MOUSE_DOWN, runFrom);
 			Core.screens.combat.btnContinue.addEventListener(MouseEvent.MOUSE_DOWN, contGame);
-			Core.screens.combat.e1Target.addEventListener(MouseEvent.MOUSE_DOWN, target);
 		}
 		//Load Data Screen Eventlisteners
 		public function initiData():void {
@@ -116,6 +116,12 @@
 		private function loadSlot1(e:MouseEvent) {
 			SaveLoad.loadData("one");
 			Core.screens.switchTo("Game");
+			if (Core.flags.loc_tyrRuins) {
+				TyrRuins.tyrRuins(Core.events.currEvent);
+			}
+			else {
+				Story.mainStory(Core.events.currEvent);
+			}
 		}
 		//Resume Game
 		private function resumeGame(e:MouseEvent):void {
@@ -123,12 +129,14 @@
 			Story.mainStory(Core.events.currEvent);
 		}
 		//Continue Game
-		private function contGame(e:MouseEvent):void {			
-			
+		private function contGame(e:MouseEvent):void {	
+			Core.screens.switchTo("Game");
+			Story.mainStory(Core.events.currEvent);
 		}
 		//Player attacks!
 		private function attack(e:MouseEvent):void {
 			Core.text.combatOutput("Who do you wish to target?", true);
+			Core.screens.combat.e1Target.addEventListener(MouseEvent.MOUSE_DOWN, target);
 		}
 		//Open the Skill Menu
 		private function skillMenu(e:MouseEvent):void {
@@ -163,6 +171,10 @@
 				//Flush the assigned number values
 				btnChoice[i] = 0;
 			}
+		}
+		//Clear targeting listeners
+		public function noTargetClick() {
+			Core.screens.combat.e1Target.removeEventListener(MouseEvent.MOUSE_DOWN, target);
 		}
 
 	}

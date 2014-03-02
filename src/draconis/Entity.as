@@ -1,5 +1,11 @@
 package draconis {
 	
+	/**
+	 * ...
+	 * @author Obsidian Shark...
+	 * @author Void Director...
+	 */
+	
 	import draconis.*;
 	import draconis.encounters.*;
 	
@@ -26,20 +32,26 @@ package draconis {
 		//Runs Entity's turn
 		public function runTurn():void {
 			this.attack(Core.combat.player);
+			trace("run enemy turn");
 		}
 		public function attack(target:Entity):void {
 			Core.text.combatOutput("\r"+this.name + " attacks " + target.name + "!", false);
-			this.dealDamage(this.str, target);			
+			this.dealDamage(this.str, target);
+			trace("attack triggered");
 		}
 		public function pcAttack(target:Entity):void {
 			Core.text.combatOutput("\r" + Core.combat.player.name + " attacks " + target.name + "!", false);
 			Core.combat.player.dealDamage(Core.combat.player.str, target);
+			Core.combat.refresh();
+			Core.buttons.noTargetClick();
 			Core.combat.runAllTurns();
 		}
 		private function dealDamage(amount:Number, target:Entity) {
 			target.HP -= amount;
 			Core.text.combatOutput("\r" + target.name + " takes " + amount + " points of damage.", false);
-			Core.combat.refresh();
+			if (target.HP <= 0) {
+				Core.combat.killTarget(target);
+			}
 		}
 	}
 	

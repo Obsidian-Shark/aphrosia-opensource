@@ -1,10 +1,16 @@
 ﻿package draconis.handlers {
 	
-	import draconis.Core;
-	import draconis.Player;
+	/**
+	 * ...
+	 * @author Obsidian Shark...
+	 */
+	
+	import draconis.*;
 	
 	public class TextHandler {
 		public var currText:String = "";
+		//parser variables
+		private var pcName:String = "[pcName]";
 
 		public function TextHandler() {
 			// constructor code

@@ -99,7 +99,7 @@
 			
 		}
 		//Refresh calculations
-		public static function refreshCalc():void {
+		public function refreshCalc():void {
 			//Male Parts
 			Core.pc.penisArea = Math.PI * Math.pow(Core.pc.penisGirth, 2) * Core.pc.penisLength / 4;
 			Core.pc.ballCap = Math.PI * Math.pow(Core.pc.testeSize, 3) / 6
@@ -107,6 +107,90 @@
 			Core.pc.vaginaArea = Math.PI * Math.pow(Core.pc.vaginaGirth, 2) * Core.pc.vaginaDepth / 4;
 			//General Parts
 			Core.pc.assArea = Math.PI * Math.pow(Core.pc.assGirth, 2) * Core.pc.assDepth / 4;
+		}
+		//BODY DESCRIPTIONS
+		//Penis descrption
+		public function penis():String {
+			var descript:String = "";
+			var penisL:Number = Core.pc.penisLength;
+			var penisG:Number = Core.pc.penisGirth;
+			var rand:Number;
+			//Length Descriptor... displays 50% of the time
+			if (int(Math.random() * 100) > 50) {
+				if (penisL < 3) descript += "micro";
+				if (penisL >= 3 && penisL < 5) descript += "stubby ";
+				if (penisL >= 5 && penisL < 7) descript += "average-length ";
+				if (penisL >= 7 && penisL < 10) descript += "long ";
+				if (penisL >= 10 && penisL < 14) descript += "large ";
+				if (penisL >= 14 && penisL < 18) descript += "massive ";
+				if (penisL >= 18) descript += "gigantic";
+			}
+			//Girth Descriptor... displays 25% of the time
+			if (int(Math.random() * 100) > 75) {
+				if (penisG < 1.5) descript += "thin";
+				if (penisG >= 1.5 && penisG < 2) descript += "thick ";
+				if (penisG >= 2 && penisG < 3) descript += "fat ";
+				if (penisG >= 3) descript += "girthy ";
+			}
+			//Words for Penis... that don't sound retarded
+			rand = int(Math.random() * 8);
+			if (rand == 0) descript += "penis";
+			if (rand == 1) descript += "cock";
+			if (rand == 2) descript += "dick";
+			if (rand == 3) descript += "dong";
+			if (rand == 4) descript += "member";
+			if (rand == 5) descript += "shaft";
+			if (rand == 6) descript += "prick";
+			if (rand == 7) descript += "knob";
+			//Return String
+			return descript;
+		}
+		//Testicle description
+		public function testes():String {
+			var descript:String = "";
+			var balls:Number = Core.pc.testeSize;
+			var rand:Number;
+			//Ball Size... displays 75% of the time
+			if (int(Math.random() * 100) > 25) {
+				if (balls < 1) descript += "tiny ";
+				if (balls >= 1 && balls < 2) descript += "normal-sized ";
+				if (balls >= 2 && balls < 3) descript += "swollen ";
+				if (balls >= 3) descript += "massive ";
+			}
+			//Words for Testicles... which isn't that many
+			rand = int(Math.random() * 4);
+			if (rand == 0) descript += "testicles";
+			if (rand == 1) descript += "testes";
+			if (rand == 2) descript += "balls";
+			if (rand == 3) descript += "nut-sack";
+			return descript;
+		}
+		//Vagina description
+		public function vagina():String {
+			var rand:Number;
+			var descript:String = "";
+			var vaginaD:Number = Core.pc.vaginaDepth;
+			var vaginaG:Number = Core.pc.vaginaGirth;
+			var vaginaW:Number = Core.pc.vaginaWet;
+			//words of Vagina... which isn't that many either
+			rand = int(Math.random() * 4);
+			if (rand == 0) descript += "vagina";
+			if (rand == 1) descript += "pussy";
+			if (rand == 2) descript += "cunny";
+			if (rand == 3) descript += "cunt";
+			return descript;
+		}
+		//Clit descriotion
+		public function clit():String {
+			var descript:String = "";
+			var clit:Number = Core.pc.clitLength;
+			var rand:Number;
+			//Words for Clit... which isn't much
+			rand = int(Math.random() * 2);
+			if (rand == 0) descript += "clitoris";
+			if (rand == 1) descript += "clit";
+			if (rand == 2) descript += "clitty";
+			return descript;
 		}
 	}
 	
