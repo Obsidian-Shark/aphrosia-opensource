@@ -47,6 +47,8 @@
 			Core.pc.cumType.Normal = true;
 			Core.pc.earType.Human = true;
 			Core.pc.feetType.Human = true;
+			Core.pc.hairCut.ShoulderLength = true;
+			Core.pc.hairType.Hair = true;
 			Core.pc.legType.Biped = true;
 			Core.pc.milkType.Normal = true;
 			Core.pc.nipType.Single = true;
@@ -60,11 +62,11 @@
 			Core.pc.assGirth = 1.5;
 			Core.pc.breastSize.B = true;
 			Core.pc.clitLength = 0.5;
-			Core.pc.hairLength = 12;
 			Core.pc.height = 65;
 			Core.pc.nipLength = 0.1;
 			Core.pc.vaginaDepth = 4;
 			Core.pc.vaginaGirth = 1.5;
+			Core.pc.vaginaArea =  Math.PI * Math.pow(Core.pc.vaginaGirth, 2) * Core.pc.vaginaDepth / 4;;
 			Core.pc.vaginaWet = 1;
 			//Fluid numbers... in mL
 			Core.pc.cumProd = 150;
@@ -105,6 +107,8 @@
 			Core.pc.cumType.Normal = true;
 			Core.pc.earType.Human = true;
 			Core.pc.feetType.Human = true;
+			Core.pc.hairCut.Short = true;
+			Core.pc.hairType.Hair = true;
 			Core.pc.legType.Biped = true;
 			Core.pc.milkType.Normal = true;
 			Core.pc.nipType.Single = true;
@@ -118,9 +122,11 @@
 			Core.pc.assDepth = 10;
 			Core.pc.assGirth = 1.5;
 			Core.pc.breastSize.Flat = true;
-			Core.pc.hairLength = 12;
 			Core.pc.height = 72;
 			Core.pc.nipLength = 0.1;
+			Core.pc.penisGirth = 1;
+			Core.pc.penisLength = 5;
+			Core.pc.penisArea =  Math.PI * Math.pow(Core.pc.penisGirth, 2) * Core.pc.penisLength / 4;;
 			Core.pc.testeSize = 1.5;
 			//Fluid numbers... in mL
 			Core.pc.cumProd = 150;

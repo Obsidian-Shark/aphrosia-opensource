@@ -111,7 +111,8 @@
 		}
 		//Data Slot 1
 		private function saveSlot1(e:MouseEvent) {
-			SaveLoad.saveData("one");		
+			SaveLoad.saveData("one");
+			Core.screens.data.saveCheck.text = "Game saved to Slot 1";
 		}
 		private function loadSlot1(e:MouseEvent) {
 			SaveLoad.loadData("one");
@@ -122,6 +123,7 @@
 			else {
 				Story.mainStory(Core.events.currEvent);
 			}
+			trace(Core.events.currEvent);
 		}
 		//Resume Game
 		private function resumeGame(e:MouseEvent):void {

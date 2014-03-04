@@ -39,6 +39,8 @@
 			addStaticObject("events", saveFile.data, Core.events);
 			//Save container data
 			addStaticObject("container", saveFile.data, Core.container);
+			//save inventory data
+			addStaticObject("inventory", saveFile.data, Core.bag);
 			trace("save data", saveFile.data);
 			if (saveFile.flush()) return true;
 			return false;
@@ -61,6 +63,8 @@
 				loadStaticObject("events", Core.events, saveFile.data);
 				//Load ContainerHandler data from saveFile.data
 				loadStaticObject("container", Core.container, saveFile.data);
+				//Load BagHandler data from saveFile.data
+				loadStaticObject("inventory", Core.bag, saveFile.data);
 				saveFile.flush();
 				return true;
 			}
