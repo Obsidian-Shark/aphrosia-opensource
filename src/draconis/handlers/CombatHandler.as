@@ -8,6 +8,7 @@
 	
 	import draconis.*;
 	import draconis.encounters.*;
+	import draconis.templates.Entity;
 	
 	public class CombatHandler 	{
 		public var player:Entity = new Entity;

@@ -6,6 +6,7 @@
 	 */
 	
 	import draconis.*;
+	import draconis.templates.Item;
 	
 	dynamic public class Player {
 		//Base Stats
@@ -78,7 +79,7 @@
 		public var vagType:Object = { Draconian:false, Human:false };
 		public var wingType:Object = { DorsalFin:false, Feathered:false, Leathery:false, None:false };
 		//Coloration
-		public var eyeColor:Object = { Brown:false };
+		public var eyeColor:Object = { Blind:false, Blue:false, Brown:false, Green:false, Hazel:false, Red:false, Silver:false };
 		public var furColor:Object = {};
 		public var hairColor:Object = { Auburn:false, Black:false, Blonde:false, Brown:false, Grey:false, Silver:false, White:false };
 		public var scaleColor:Object = { Brown:false, Green:false, White:false };
@@ -94,9 +95,15 @@
 		public var legSlot:String = "";
 		public var ringSlot:String = "";
 		public var weaponSlot:String = "";
+		//Inventory
+		public var bag:Object = { };
 		
 		public function Player() {
 			// constructor code
+			
+		}
+		//Player loots item
+		public function loot(item:Item):void {
 			
 		}
 		//Refresh calculations

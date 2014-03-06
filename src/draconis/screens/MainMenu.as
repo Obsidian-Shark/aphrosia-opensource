@@ -26,7 +26,8 @@
 			btnNewGame.visible = true;
 			btnLoadGame.visible = true;
 			btnCredits.visible = true;
-			btnResume.visible = false;
+			if (Core.flags.activeGame) btnResume.visible = true;
+			else btnResume.visible = false;
 			//Deactivate text fields
 			btnCredits.btnText.mouseEnabled = false;
 			btnLoadGame.btnText.mouseEnabled = false;

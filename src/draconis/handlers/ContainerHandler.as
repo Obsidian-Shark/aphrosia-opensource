@@ -1,4 +1,4 @@
-package draconis.handlers {
+﻿package draconis.handlers {
 	
 	/**
 	 * ...
@@ -16,6 +16,12 @@ package draconis.handlers {
 		
 		public function ContainerHandler() {
 			//constructor code
+		}
+		public function resetContainers():void {
+			barContainer = { Coins:true };
+			cartContainer = { Purse:true, Vial:true };
+			corpseContainer = { Key:true, Purse:true };
+			strgRmContainer = { Vial:true, Whiskey:true };
 		}
 	}
 	

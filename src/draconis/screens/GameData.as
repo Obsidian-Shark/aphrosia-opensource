@@ -43,12 +43,13 @@
 			btnResume.btnText.text = "Resume";
 			btnMenu.btnText.text = "Main Menu";
 			//Default button visibility
-			slot1Save.visible = true;
-			slot1Load.visible = true;
+			slot1Save.visible = false;
+			slot1Load.visible = false;
 			btnSlot2.visible = false;
 			btnSlot3.visible = false;
 			btnSlot4.visible = false;
-			btnResume.visible = false;
+			if (Core.flags.activeGame) btnResume.visible = true;
+			else btnResume.visible = false;
 			btnMenu.visible = true;
 			Core.buttons.initiData();
 		}

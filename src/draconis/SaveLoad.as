@@ -4,6 +4,7 @@
 	 * ...
 	 * @author Obsidian Shark...
 	 * @author Void Director...
+	 * @author TOtem...
 	 */
 	
 	import flash.net.SharedObject;
@@ -30,7 +31,12 @@
 		}
 		public static function saveData(slot:String):Boolean {
 			var saveFile = SharedObject.getLocal(slot);
-			saveFile.data.exist = true;
+			//Variables for displaying save data info in save slot text
+			var nameString:String = new String();
+			var levelInt:int = new int();
+			nameString = saveFile.data.player.name;
+			levelInt = saveFile.data.player.lvl;
+			saveFile.data.exists = true;
 			//save all of Player class variables
 			addStaticObject("player", saveFile.data, Core.pc);
 			//save all FlagHandler class vairables

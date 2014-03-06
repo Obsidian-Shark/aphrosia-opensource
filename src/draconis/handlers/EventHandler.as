@@ -9,7 +9,6 @@
 	
 	dynamic public class EventHandler {
 		public var currEvent:Number = 0;
-		public var holdEvent:Number = 0;
 
 		public function EventHandler() {
 			// constructor code
@@ -21,9 +20,15 @@
 			Core.screens.game.btnProfile.visible = false;
 			Core.screens.game.btnSaveGame.visible = false;
 			Core.screens.game.pcPane.visible = false;
-			Core.bag.flushInven();
-			Core.flags.resetFlags();
+			resetData();
 			Story.mainStory(1);
+		}
+		//Flush out old data to start new game
+		private function resetData():void {
+			Core.flags.resetFlags();
+			Core.container.resetContainers();
+			killFemale();
+			killMale();
 		}
 		//Start a new character as a female
 		public function isFemale():void {

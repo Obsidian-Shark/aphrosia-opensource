@@ -6,6 +6,8 @@
 	 */
 	
 	import draconis.*;
+	import draconis.templates.Item;
+	
 	
 	public class TyrRuins {
 		
@@ -52,7 +54,7 @@
 			//Pick up the coins around the bar
 			if (eventNum == 5004) {
 				Core.text.gameOutput("You bend down to pick up the coins and pocket them. It’s not much but it’s something.", true);
-				Core.bag.sigils += 8;
+				//Core.bag.sigils += 8;
 				Core.container.barContainer.Coins = false;
 				Core.buttons.button(1, "Next", 5003);
 			}
@@ -101,14 +103,14 @@
 			if (eventNum == 5009) {
 				Core.text.gameOutput("You grab the bottle of whiskey. Oddly enough, the glass of the bottle feels soothingly warm to the touch. You place it in your bag.", true);
 				Core.container.strgRmContainer.Whiskey = false;
-				Core.bag.keepsakes.push("Dragonbloom Whiskey");
+				//Core.bag.keepsakes.push("Dragonbloom Whiskey");
 				Core.buttons.button(1, "Next", 5006);
 			}
 			//Take the health vial
 			if (eventNum == 5010) {
 				Core.text.gameOutput("You pick up the small health potion and stick it in your bag.", true);
 				Core.container.strgRmContainer.Vial = false;
-				Core.bag.sm_HPvial += 1;
+				//Core.bag.sm_HPvial += 1;
 				Core.buttons.button(1, "Next", 5006);
 			}
 			//Leave the storage room
@@ -134,7 +136,7 @@
 				Core.text.gameOutput("You grab the hilt and pull the sword out from under the ash and debris. Just as you thought, it is the sword Jorgen had on display, a remnant of his days as a mercenary in his youth. The blade is dull, pitted, and covered in rust. You slip it through your belt, since you don’t have a sheath for it.", true);
 				Core.container.corpseContainer.Sword = false;
 				Core.flags.player_HasOldSword = true;
-				Core.bag.keepsakes.push("Old Sword");
+				//Core.bag.keepsakes.push("Old Sword");
 				Core.buttons.button(1, "Next", 5012);
 			}
 			//Take the iron key
@@ -142,7 +144,7 @@
 				Core.text.gameOutput("You snap the key off the leather strip. It has no distinguishing marks on it but it’s likely that it goes to something in the tavern.", true);
 				Core.container.corpseContainer.Key = false;
 				Core.flags.player_HasISTKey = true;
-				Core.bag.keepsakes.push("Iron key");
+				//Core.bag.keepsakes.push("Iron key");
 				Core.buttons.button(1, "Next", 5012);
 			}
 			//Leave the Corpse alone
@@ -172,14 +174,14 @@
 			if (eventNum == 5018) {
 				Core.text.gameOutput("With some effort, you pull the vial out without breaking it and place it in your bag.", true);
 				Core.container.cartContainer.Vial = false;
-				Core.bag.sm_HPvial += 1;
+				//Core.bag.sm_HPvial += 1;
 				Core.buttons.button(1, "Next", 5017);
 			}
 			//Take the coin purse
 			if (eventNum == 5019) {
 				Core.text.gameOutput("You dig out the purse and check its contents, finding it has a few sigils inside, which you add to your own purse.", true);
 				Core.container.cartContainer.Purse = false;
-				Core.bag.sigils += 15;
+				//Core.bag.sigils += 15;
 				Core.buttons.button(1, "Next", 5017);
 			}
 			//Leave the Cart
