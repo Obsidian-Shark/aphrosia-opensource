@@ -79,32 +79,40 @@
 		public var vagType:Object = { Draconian:false, Human:false };
 		public var wingType:Object = { DorsalFin:false, Feathered:false, Leathery:false, None:false };
 		//Coloration
-		public var eyeColor:Object = { Blind:false, Blue:false, Brown:false, Green:false, Hazel:false, Red:false, Silver:false };
-		public var furColor:Object = {};
+		public var eyeColor:Object = { Blind:false, Blue:false, Brown:false, Green:false, Grey:false, Hazel:false, Red:false, Silver:false, Yellow:false };
+		public var furColor:Object = { Black:false, Brown:false, Grey:false, Silver:false, White:false };
 		public var hairColor:Object = { Auburn:false, Black:false, Blonde:false, Brown:false, Grey:false, Silver:false, White:false };
-		public var scaleColor:Object = { Brown:false, Green:false, White:false };
-		public var skinColor:Object = { Fair:false };
+		public var scaleColor:Object = { Bronze:false, Brown:false, Green:false, White:false };
+		public var skinColor:Object = { Dark:false, Fair:false, Pale:false };
 		//Misc
-		public var hairCut:Object = {Bald:false, BuzzCut:false, Long:false, Mohawk:false, Pixie:false, Short:false, ShoulderLength:false };
+		public var hairStyle:Object = { Bald:false, BowlCut:false, Braid:false, BuzzCut:false, Dreadlocks:false, Long:false, Mohawk:false, Pixie:false, Short:false, ShoulderLength:false, SidePonyTail:false };
 		public var isVirgin:Boolean = false;
 		//Equipment Slots
-		public var accSlot:String = "";
-		public var chestSlot:String = "";
-		public var feetSlot:String = "";
-		public var handSlot:String = "";
-		public var legSlot:String = "";
-		public var ringSlot:String = "";
-		public var weaponSlot:String = "";
+		public var accSlot:Object = { };
+		public var chestSlot:Object = { };
+		public var feetSlot:Object = { };
+		public var handSlot:Object = { };
+		public var legSlot:Object = { };
+		public var ringSlot:Object= { };
+		public var weaponSlot:Object = { };
 		//Inventory
 		public var bag:Object = { };
+		public var sigils:int = 0;
 		
 		public function Player() {
 			// constructor code
 			
 		}
 		//Player loots item
-		public function loot(item:Item):void {
-			
+		public function loot(item:Object):void {
+			if (bag.hasOwnProperty(item.name)) {
+				bag.item.count++;
+				trace("Player has " + bag.item.count + " " + item.name + "");
+			}
+			else {
+				bag[item.name] = item;
+				trace("Player adds " + item.name + " to bag");
+			}
 		}
 		//Refresh calculations
 		public function refreshCalc():void {

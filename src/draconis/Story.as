@@ -9,6 +9,7 @@
 	import draconis.locations.city.*;
 	
 	public class Story {
+		//public static var amulet:
 
 		public function Story() {
 			// constructor code
@@ -17,6 +18,7 @@
 			Core.flags.activeGame = true;
 			Core.screens.game.refreshScreen();
 			Core.buttons.flushBtns();
+			var amulet:Object = { "name":"Family Amulet", "type":"Collectible", "value":0, "count":1 };
 			//INTRODUCTION
 			if (eventNum == 01) {
 				Core.text.gameOutput("You wake up, expecting it to be morning but, instead, you find yourself staring up at a endless, blank sky as it shifts from hues of violet to inky indigo. The surface underneath you isn’t the soft fabric of your mattress but hard, cold black stone. You recall that you fell asleep in your own bed at curfew but how you got here… this must be a dream you think to yourself. Simply a strange dream. You get to your feet and have a look around, only to find that the rock is actually quite small and floating in the middle of, well, nothing. There are other rocks around you of various sizes and shape but they are too far away to attempt jumping to. You seem to be the only soul present in this strange landscape.", true);
@@ -165,7 +167,7 @@
 				Core.text.gameOutput("You ask Argo if he needs any help around his shop. He accepts your offer, saying he could use an extra pair of hands with tidying up the smithy a bit. He hands you a leather smock more suited to your size to put on. Once ready, he sets you right to work moving tools, organizing materials, and sweeping the floor. It’s hard, dirty work but it only take about an hour so before you two are finished.", true);
 				Core.text.gameOutput("\r\r“Thanks for the help, "+Core.pc.name+". Here, for your efforts.” Argo thanks, giving you a firm pat on the back before handing you a handful of sigils.", false);
 				Core.text.gameOutput("\r\rFinished for now, you take the smock off and hand it back to Argo. Having to get back to work, you give the minotaur a hug before leaving.", false);
-				//Core.bag.sigils += 26;
+				Core.pc.sigils += 26;
 				Core.pc.str += 1;
 				Core.flags.tyr_HelpedArgoAtShop = true;
 				Core.buttons.button(1, "Next", 10);
@@ -313,7 +315,7 @@
 				Core.text.gameOutput("Though the two of you agreed to it, neither of you seem to be willing to make the first move. You just sit there in awkward silence. Brian looks incredibly nervous so, you swallow your own nerves and lean towards him to kiss him. At first, it’s just a shy touching of lips but the pleasant shiver that runs down your back inspires you to go further. Your tongue tangles with Brian’s as the two of you continue kissing, only breaking apart for short gulps of air, until Brian pushes you onto your back. Both of your are short of breath when Brian pulls back, hovering over you.", true)
 				if (Core.pc.penisArea > 0) {
 					Core.text.gameOutput("\r\r“So… um, how do we do this? I mean… one of us has to be on top.” He asks, eyes looking away from you.", false);
-					Core.text.gameOutput("\r\rBrian brings up a valid point; one of you is going to have to be on the receiving end. Who is going to get their cherry popped first?", false);
+					Core.text.gameOutput("\r\rBrian brings up a valid point; one of you is going to have to be on the receiving end. Who gets to be the cherry picker?", false);
 					Core.buttons.button(1, "Brian", 29.1);
 					Core.buttons.button(2, "You", 29.2);
 				}
@@ -385,7 +387,7 @@
 			if (eventNum == 34) {
 				Core.text.gameOutput("You take a deep breath, carefully kneeling next to her and untying the soaked amulet from around her throat. Her body is still warm but you try not to think about how long she’s actually been dead or what was done to her before hand. You wipe the amulet off on the edge of your tunic. The pendant itself is simply a piece of hammered iron with a sheaf of wheat and a sickle stamped on it. Your parents would tell you stories of how it brought luck to your family during times of tragedy and great need. Perhaps it will bring you the same luck. For now, you pocket it and back away from your mother, returning to the smashed den.", true);
 				Core.container.motherContainer.Amulet = false;
-				//Core.bag.keepsakes.push("Family Amulet");
+				Core.pc.loot(amulet);
 				Core.buttons.button(1, "Next", 32);
 			}
 			//Leave the Kitchen
@@ -550,7 +552,7 @@
 				Core.text.gameOutput("\r\r“But… I don’t have any mo-?!” You start, trying to warn him you are broke but he tosses a hefty pouch of coins onto the table, smiling.", false);
 				Core.text.gameOutput("\r\r“That should be enough sigils to get you the supplies you’ll need. The remainder, you are free to do with as you please. Vespyr is well known for it’s… discreet house of entertainment. When you are ready to go, meet me at the North Gate.” He continues, tipping his head before turning and leaving the tavern.", false);
 				Core.text.gameOutput("\r\rYou scoop up the pouch, feeling its weight before checking inside. Sure enough, there are more sigils in there than you have ever seen. With money in hand and the promise of adventure and a new home ahead of you, you leave the tavern to get a proper look around Vespyr and prepare yourself.", false);
-				//Core.bag.sigils += 100;
+				Core.pc.sigils += 100;
 				Core.buttons.button(1, "Next", 60);
 			}
 			//Stay in Vespyr... because that's an option for some reason

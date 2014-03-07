@@ -30,12 +30,8 @@
 			}
 		}
 		public static function saveData(slot:String):Boolean {
-			var saveFile = SharedObject.getLocal(slot);
 			//Variables for displaying save data info in save slot text
-			var nameString:String = new String();
-			var levelInt:int = new int();
-			nameString = saveFile.data.player.name;
-			levelInt = saveFile.data.player.lvl;
+			var saveFile = SharedObject.getLocal(slot);
 			saveFile.data.exists = true;
 			//save all of Player class variables
 			addStaticObject("player", saveFile.data, Core.pc);

@@ -3,6 +3,7 @@
 	/**
 	 * ...
 	 * @author Obsidian Shark...
+	 * @author Totem...
 	 */
 	
 	import flash.display.MovieClip;
@@ -53,6 +54,24 @@
 			btnMenu.visible = true;
 			Core.buttons.initiData();
 		}
+		//private function displaySaveSlots():void {
+			//Core.gameData.saveFile = SharedObject.getLocal("one");
+			//if (Core.gameData.saveFile.data.exists) {
+				//slot1Descript.text = "" + saveFile.data.player.name +", Level:" + saveFile.data.player.lvl + "";
+			//}
+			//Core.gameData.saveFile = SharedObject.getLocal("two");
+			//if (Core.gameData.saveFile.data.exists) {
+				//slot2Descript.text = "" + saveFile.data.player.name + ", Level:" + saveFile.data.player.lvl + "";
+			//}
+			//Core.gameData.saveFile = SharedObject.getLocal("three");
+			//if (Core.gameData.saveFile.data.exists) {
+				//slot3Descript.text = "" + saveFile.data.player.name + ", Level:" + saveFile.data.player.lvl + "";
+			//}
+			//Core.gameData.saveFile = SharedObject.getLocal("four");
+			//if (Core.gameData.saveFile.data.exists) {
+				//slot4Descript.text = "" + saveFile.data.player.name + ", Level:" +saveFIle.data.player.lvl + "";
+			//}
+		//}
 	}
 	
 }
