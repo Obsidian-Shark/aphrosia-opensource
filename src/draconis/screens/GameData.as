@@ -27,6 +27,7 @@
 			slot2Descript.text = "Empty";
 			slot3Descript.text = "Empty";
 			slot4Descript.text = "Empty";
+			displaySaveSlots("one");
 			//Deactivate button textfields
 			slot1Save.btnText.mouseEnabled = false;
 			slot1Load.btnText.mouseEnabled = false;
@@ -44,8 +45,9 @@
 			btnResume.btnText.text = "Resume";
 			btnMenu.btnText.text = "Main Menu";
 			//Default button visibility
-			slot1Save.visible = false;
-			slot1Load.visible = false;
+			if (Core.flags.activeGame) slot1Save.visible = true;
+			else slot1Save.visible = false;
+			slot1Load.visible = true;
 			btnSlot2.visible = false;
 			btnSlot3.visible = false;
 			btnSlot4.visible = false;
@@ -54,24 +56,25 @@
 			btnMenu.visible = true;
 			Core.buttons.initiData();
 		}
-		//private function displaySaveSlots():void {
-			//Core.gameData.saveFile = SharedObject.getLocal("one");
-			//if (Core.gameData.saveFile.data.exists) {
-				//slot1Descript.text = "" + saveFile.data.player.name +", Level:" + saveFile.data.player.lvl + "";
-			//}
-			//Core.gameData.saveFile = SharedObject.getLocal("two");
-			//if (Core.gameData.saveFile.data.exists) {
-				//slot2Descript.text = "" + saveFile.data.player.name + ", Level:" + saveFile.data.player.lvl + "";
-			//}
-			//Core.gameData.saveFile = SharedObject.getLocal("three");
-			//if (Core.gameData.saveFile.data.exists) {
-				//slot3Descript.text = "" + saveFile.data.player.name + ", Level:" + saveFile.data.player.lvl + "";
-			//}
-			//Core.gameData.saveFile = SharedObject.getLocal("four");
-			//if (Core.gameData.saveFile.data.exists) {
-				//slot4Descript.text = "" + saveFile.data.player.name + ", Level:" +saveFIle.data.player.lvl + "";
-			//}
-		//}
+		private function displaySaveSlots(slot:String):void {
+			var saveFile = SharedObject.getLocal(slot);
+			saveFile = SharedObject.getLocal("one");
+			if (saveFile.data.exists) {
+				slot1Descript.text = "" + saveFile.data.player.name +", Level:" + saveFile.data.player.lvl + "";
+			}
+			saveFile = SharedObject.getLocal("two");
+			if (saveFile.data.exists) {
+				slot2Descript.text = "" + saveFile.data.player.name + ", Level:" + saveFile.data.player.lvl + "";
+			}
+			saveFile = SharedObject.getLocal("three");
+			if (saveFile.data.exists) {
+				slot3Descript.text = "" + saveFile.data.player.name + ", Level:" + saveFile.data.player.lvl + "";
+			}
+			saveFile = SharedObject.getLocal("four");
+			if (saveFile.data.exists) {
+				slot4Descript.text = "" + saveFile.data.player.name + ", Level:" +saveFile.data.player.lvl + "";
+			}
+		}
 	}
 	
 }

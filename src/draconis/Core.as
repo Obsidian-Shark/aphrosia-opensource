@@ -19,6 +19,7 @@
 		public static var events:EventHandler = new EventHandler();
 		public static var flags:FlagHandler = new FlagHandler();
 		public static var gameData:SaveLoad = new SaveLoad();
+		public static var item:ItemHandler = new ItemHandler();
 		public static var pc:Player = new Player();
 		public static var screens:ScreenHandler = new ScreenHandler();
 		public static var text:TextHandler = new TextHandler();

@@ -9,7 +9,6 @@
 	import draconis.locations.city.*;
 	
 	public class Story {
-		//public static var amulet:
 
 		public function Story() {
 			// constructor code
@@ -387,7 +386,7 @@
 			if (eventNum == 34) {
 				Core.text.gameOutput("You take a deep breath, carefully kneeling next to her and untying the soaked amulet from around her throat. Her body is still warm but you try not to think about how long she’s actually been dead or what was done to her before hand. You wipe the amulet off on the edge of your tunic. The pendant itself is simply a piece of hammered iron with a sheaf of wheat and a sickle stamped on it. Your parents would tell you stories of how it brought luck to your family during times of tragedy and great need. Perhaps it will bring you the same luck. For now, you pocket it and back away from your mother, returning to the smashed den.", true);
 				Core.container.motherContainer.Amulet = false;
-				Core.pc.loot(amulet);
+				Core.pc.loot(Core.item.familyAmulet);
 				Core.buttons.button(1, "Next", 32);
 			}
 			//Leave the Kitchen

@@ -85,7 +85,7 @@
 		public var scaleColor:Object = { Bronze:false, Brown:false, Green:false, White:false };
 		public var skinColor:Object = { Dark:false, Fair:false, Pale:false };
 		//Misc
-		public var hairStyle:Object = { Bald:false, BowlCut:false, Braid:false, BuzzCut:false, Dreadlocks:false, Long:false, Mohawk:false, Pixie:false, Short:false, ShoulderLength:false, SidePonyTail:false };
+		public var hairCut:Object = { Bald:false, BowlCut:false, Braid:false, BuzzCut:false, Dreadlocks:false, Long:false, Mohawk:false, Pixie:false, Short:false, ShoulderLength:false, SidePonyTail:false };
 		public var isVirgin:Boolean = false;
 		//Equipment Slots
 		public var accSlot:Object = { };
@@ -112,6 +112,19 @@
 			else {
 				bag[item.name] = item;
 				trace("Player adds " + item.name + " to bag");
+			}
+		}
+		//Player drops item
+		public function drop(item:Object):void {
+			if (bag.hasOwnProperty(item.name)) {
+				bag.item.count--;
+				if (bag.item.count == 0) {
+					delete(bag[item.name]);
+					trace("Player discards " +item.name + "");
+				}
+				else {
+					trace("Player has discarded a " + item.name + " and now has " + bag.item.count + " left");
+				}
 			}
 		}
 		//Refresh calculations

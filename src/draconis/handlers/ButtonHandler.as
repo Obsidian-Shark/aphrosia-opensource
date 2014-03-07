@@ -123,7 +123,7 @@
 			else {
 				Story.mainStory(Core.events.currEvent);
 			}
-			trace(Core.events.currEvent);
+			trace("Events = " +Core.events.currEvent + "");
 		}
 		//Resume Game
 		private function resumeGame(e:MouseEvent):void {

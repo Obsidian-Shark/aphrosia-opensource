@@ -20,7 +20,8 @@
 		public function resetContainers():void {
 			barContainer = { Coins:true };
 			cartContainer = { Purse:true, Vial:true };
-			corpseContainer = { Key:true, Purse:true };
+			corpseContainer = { Key:true, Purse:true, Sword:true };
+			motherContainer = { Amulet:true };
 			strgRmContainer = { Vial:true, Whiskey:true };
 		}
 	}
