@@ -15,7 +15,7 @@ package draconis.handlers {
 		//Keys
 		public var istKey:Item = new Item( { "name":"Storage Key", "count":1, "value":0 } );
 		//Potions & Vials
-		public var smHPVial:Potion = new Item( { "name":"Sm. HP Vial", "count":1, "value": 5, "type":"Health" } );
+		public var smHPVial:Potion = new Potion( { "type":"Health", "name":"Sm. HP Vial", "count":1, "value": 5} );
 	}
 	
 }
