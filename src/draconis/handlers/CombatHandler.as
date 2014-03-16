@@ -122,6 +122,9 @@
 		}
 		private function endCombat():void {
 			Tutorial.defeatText();
+			Core.pc.HP = player.HP;
+			Core.pc.MP = player.MP;
+			Core.pc.SP = player.SP;
 			trace("Combat is over");
 		}
 	}

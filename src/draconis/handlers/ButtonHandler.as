@@ -44,7 +44,8 @@
 							return;
 						}
 						Core.events.currEvent = btnChoice[btnNumber];
-						if(Core.flags.loc_tyrRuins) TyrRuins.tyrRuins(Core.events.currEvent);
+						if (Core.flags.loc_tyrRuins) TyrRuins.tyrRuins(Core.events.currEvent);
+						else if (Core.flags.loc_vespyr) Vespyr.vespyr(Core.events.currEvent);
 						else Story.mainStory(Core.events.currEvent);
 					};
 				}
@@ -65,7 +66,7 @@
 			Core.screens.combat.btnSkills.addEventListener(MouseEvent.MOUSE_DOWN, skillMenu);
 			Core.screens.combat.btnMagic.addEventListener(MouseEvent.MOUSE_DOWN, magicMenu);
 			Core.screens.combat.btnEscape.addEventListener(MouseEvent.MOUSE_DOWN, runFrom);
-			Core.screens.combat.btnContinue.addEventListener(MouseEvent.MOUSE_DOWN, contGame);
+			Core.screens.combat.btnContinue.addEventListener(MouseEvent.MOUSE_DOWN, resumeGame);
 		}
 		//Load Data Screen Eventlisteners
 		public function initiData():void {
@@ -98,7 +99,6 @@
 		private function loadProfile(e:MouseEvent):void {
 			Core.screens.switchTo("Profile");
 			trace("Load Character Profile");
-			trace(Core.events.holdEvent);
 		}
 		//Load Inventory Screen
 		private function loadInventory(e:MouseEvent):void {
@@ -107,33 +107,32 @@
 		}
 		//Load Data Screen
 		private function dataScreen(e:MouseEvent):void {
+			Core.screens.game.btnSaveGame.visible = true;
+			Core.screens.game.btnInventory.visible = true;
 			Core.screens.switchTo("Data");
 		}
 		//Data Slot 1
 		private function saveSlot1(e:MouseEvent) {
 			SaveLoad.saveData("one");
+			Core.screens.data.displaySaveSlots("one");
 			Core.screens.data.saveCheck.text = "Game saved to Slot 1";
 		}
 		private function loadSlot1(e:MouseEvent) {
 			SaveLoad.loadData("one");
 			Core.screens.switchTo("Game");
-			if (Core.flags.loc_tyrRuins) {
-				TyrRuins.tyrRuins(Core.events.currEvent);
-			}
-			else {
-				Story.mainStory(Core.events.currEvent);
-			}
+			if (Core.flags.loc_tyrRuins) TyrRuins.tyrRuins(Core.events.currEvent);
+			if (Core.flags.loc_vespyr) Vespyr.vespyr(Core.events.currEvent);
+			else Story.mainStory(Core.events.currEvent);
 			trace("Events = " +Core.events.currEvent + "");
 		}
 		//Resume Game
 		private function resumeGame(e:MouseEvent):void {
 			Core.screens.switchTo("Game");
-			Story.mainStory(Core.events.currEvent);
-		}
-		//Continue Game
-		private function contGame(e:MouseEvent):void {	
-			Core.screens.switchTo("Game");
-			Story.mainStory(Core.events.currEvent);
+			Core.screens.game.btnSaveGame.visible = true;
+			Core.screens.game.btnInventory.visible = true;
+			if (Core.flags.loc_tyrRuins) TyrRuins.tyrRuins(Core.events.currEvent);
+			if (Core.flags.loc_vespyr) Vespyr.vespyr(Core.events.currEvent);
+			else Story.mainStory(Core.events.currEvent);
 		}
 		//Player attacks!
 		private function attack(e:MouseEvent):void {

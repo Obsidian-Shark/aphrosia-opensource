@@ -9,8 +9,6 @@
 	
 	public class TextHandler {
 		public var currText:String = "";
-		//parser variables
-		private var pcName:String = "[pcName]";
 
 		public function TextHandler() {
 			// constructor code
@@ -27,12 +25,6 @@
 			else currText = text;
 			Core.screens.pc.pcDescript.htmlText = currText;
 			Core.screens.pc.scrollBar3.update();
-		}
-		public function bagOutput(text:String, reset:Boolean):void {
-			if (reset == false) currText = currText + text;
-			else currText = text;
-			Core.screens.bag.bagList.htmlText = currText;
-			Core.screens.bag.scrollBar4.update();
 		}
 		public function combatOutput(text:String, reset:Boolean):void {
 			if (reset == false) currText = currText + text;

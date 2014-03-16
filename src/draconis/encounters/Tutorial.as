@@ -42,7 +42,7 @@ package draconis.encounters {
 		public static function defeatText():void {
 			Core.text.combatOutput("\r\rOverwhelmed, the scrawny mus drops their weapon and runs off, squeaking in fear. Unfortunately, the Mus has no loot for you but, in general, the beasts and hostiles you encounter will drop money and other items.", false);
 			Core.text.combatOutput("\r\rYou are free to continue on your way now.", false);
-			Core.screens.combat.exitCombat(48);
+			Core.screens.combat.exitCombat(50);
 		}
 	}
 	

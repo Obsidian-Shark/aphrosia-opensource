@@ -56,7 +56,7 @@
 			btnMenu.visible = true;
 			Core.buttons.initiData();
 		}
-		private function displaySaveSlots(slot:String):void {
+		public function displaySaveSlots(slot:String):void {
 			var saveFile = SharedObject.getLocal(slot);
 			saveFile = SharedObject.getLocal("one");
 			if (saveFile.data.exists) {

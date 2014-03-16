@@ -41,6 +41,12 @@
 			Core.pc.lvl = 1;
 			Core.pc.str = 8;
 			Core.pc.wis = 10
+			Core.pc.maxHP = Math.round(Core.pc.endr * 2.5);
+			Core.pc.maxMP = Math.round(Core.pc.wis * 1.5);
+			Core.pc.maxSP = Math.round(Core.pc.str * 1.5);
+			Core.pc.HP = Core.pc.maxHP;
+			Core.pc.MP = Core.pc.maxMP;
+			Core.pc.SP = Core.pc.maxSP;
 			//Body variables
 			Core.pc.fertile = 75;
 			Core.pc.gendAppear = 0;
@@ -150,18 +156,6 @@
 			//Flags
 			Core.pc.isVirgin = true;
 			killFemale();
-		}
-		//Increase Player's aggressive score
-		public function addAggro():void {
-			Core.pc.aggro += 1;
-			if (Core.pc.passi == 0) Core.pc.passi = 0;
-			else Core.pc.passi -= 1;
-		}
-		//Increase Player's passive score... for betaness
-		public function addPassi():void {
-			Core.pc.passi += 1;
-			if (Core.pc.aggro == 0) Core.pc.aggro = 0;
-			else Core.pc.aggro -= 1;
 		}
 		//Kill Female variables for new character
 		private function killFemale() {

@@ -17,14 +17,16 @@
 		public var loc_elsyrWoodlands:Boolean = false;
 		public var loc_elsyr:Boolean = false;
 		//One-time Event flags... to prevent cheating exploits... I hope
-		public var tyr_HelpedArgoAtShop:Boolean = false;
-		public var tyr_FlirtedWithArgo:Boolean = false;
 		public var tyr_DayWithBrian:Boolean = false;
 		public var tyr_DayWithSasha:Boolean = false;
-		public var vespyr_TraveledWithHyperiusAndElra:Boolean = false;
+		public var tyr_FlirtedWithArgo:Boolean = false;
+		public var tyr_HelpedArgoAtShop:Boolean = false;
 		public var vespyr_BittenByDisfiguredHomeless:Boolean = false;
 		public var vespyr_HadSexWithTheFaunShopkeeper:Boolean = false;
+		public var vespyr_MetWithAmiraTheInformationBroker:Boolean = false;
 		public var vespyr_RescueTheDruggedCentaurWhore:Boolean = false;
+		public var vespyr_StoleFromPoorDrunkManYouHeartlessFiend:Boolean = false;
+		public var vespyr_TraveledWithHyperiusAndElra:Boolean = false;
 		//Door Checks
 		public var tyrRuins_StorageDoorLocked:Boolean = true;
 		//Inventory Checks

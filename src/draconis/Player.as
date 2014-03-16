@@ -23,8 +23,11 @@
 		public var wis:int = 0; //Wisdom
 		public var chrs:int = 0; //Charisma
 		public var HP:int = 0;
+		public var maxHP:int = 0;
 		public var MP:int = 0;
+		public var maxMP:int = 0;
 		public var SP:int = 0;
+		public var maxSP:int = 0;
 		//Personality scores
 		public var aggro:int = 0; //Aggression
 		public var passi:int = 0; //Passive
@@ -123,7 +126,7 @@
 					trace("Player discards " +item.name + "");
 				}
 				else {
-					trace("Player has discarded a " + item.name + " and now has " + bag.item.count + " left");
+					trace("Player has discarded a " + item.name + " and now have " + bag.item.count + " left");
 				}
 			}
 		}
@@ -136,6 +139,7 @@
 			Core.pc.vaginaArea = Math.PI * Math.pow(Core.pc.vaginaGirth, 2) * Core.pc.vaginaDepth / 4;
 			//General Parts
 			Core.pc.assArea = Math.PI * Math.pow(Core.pc.assGirth, 2) * Core.pc.assDepth / 4;
+			//Stats
 		}
 		//BODY DESCRIPTIONS
 		//Penis descrption
@@ -291,6 +295,30 @@
 			if (gender <= 33) descript += "her";
 			if (gender < 66 && gender > 33) descript += "... it";
 			return descript;
+		}
+				//Increase Player's aggressive score
+		public function addAggro():void {
+			Core.pc.aggro += 1;
+			if (Core.pc.passi == 0) Core.pc.passi = 0;
+			else Core.pc.passi -= 1;
+		}
+		//Increase Player's passive score... for betaness
+		public function addPassi():void {
+			Core.pc.passi += 1;
+			if (Core.pc.aggro == 0) Core.pc.aggro = 0;
+			else Core.pc.aggro -= 1;
+		}
+		//Increase Player's nobility score... for white-knighting
+		public function addNoble():void {
+			Core.pc.noble += 1;
+			if (Core.pc.self == 0) Core.pc.self = 0;
+			else Core.pc.aggro -= 1;
+		}
+		//Increase Player's selfishness... for being an asshole
+		public function addSelfish():void {
+			Core.pc.self += 1;
+			if (Core.pc.noble == 0) Core.pc.noble = 0;
+			else Core.pc.noble -= 1;
 		}
 	}
 	

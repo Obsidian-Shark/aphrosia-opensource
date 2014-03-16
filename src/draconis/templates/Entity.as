@@ -35,12 +35,12 @@ package draconis.templates {
 			trace("run enemy turn");
 		}
 		public function attack(target:Entity):void {
-			Core.text.combatOutput("\r"+this.name + " attacks " + target.name + "!", false);
+			Core.text.combatOutput("\r\r"+this.name + " attacks " + target.name + "!", false);
 			this.dealDamage(this.str, target);
 			trace("attack triggered");
 		}
 		public function pcAttack(target:Entity):void {
-			Core.text.combatOutput("\r" + Core.combat.player.name + " attacks " + target.name + "!", false);
+			Core.text.combatOutput("\r\r" + Core.combat.player.name + " attacks " + target.name + "!", false);
 			Core.combat.player.dealDamage(Core.combat.player.str, target);
 			Core.combat.refresh();
 			Core.buttons.noTargetClick();
@@ -52,6 +52,9 @@ package draconis.templates {
 			if (target.HP <= 0) {
 				Core.combat.killTarget(target);
 			}
+		}
+		private function heal(target:Entity) {
+			
 		}
 	}
 	
