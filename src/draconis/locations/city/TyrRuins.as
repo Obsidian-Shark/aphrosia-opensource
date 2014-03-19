@@ -111,7 +111,7 @@
 			if (eventNum == 5010) {
 				Core.text.gameOutput("You pick up the small health potion and stick it in your bag.", true);
 				Core.container.strgRmContainer.Vial = false;
-				Core.pc.loot(Core.item.smHPVial);
+				//Core.pc.loot(Core.item.smHPVial);
 				Core.buttons.button(1, "Next", 5006);
 			}
 			//Leave the storage room

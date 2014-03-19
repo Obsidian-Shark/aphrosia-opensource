@@ -131,15 +131,15 @@
 			//Purchase some Inferil
 			if (eventNum == 5064) {
 				Core.text.gameOutput("You decide to buy yourself a bundle of Inferil leaves. You call the alchemist over and hand him the twenty sigils. You place the Inferil leaves in your bag for now and go back to looking around the booth.", true);
-				Core.pc.loot(Core.item.inferil);
+				//Core.pc.loot(Core.item.inferil);
 				Core.pc.sigils -= Core.item.inferil.value;
 				Core.buttons.button(1, "Next", 5063);
 			}
 			//Purchase a Small Health Vial
 			if (eventNum == 5065) {
 				Core.text.gameOutput("You decide to buy yourself one of those small health vials. You call the alchemist over and hand him the ten sigils. You place the small vial in your bag for now and go back to looking around the booth.", true);
-				Core.pc.loot(Core.item.smHPVial);
-				Core.pc.sigils -= Core.item.smHPVial.value;
+				//Core.pc.loot(Core.item.smHPVial);
+				//Core.pc.sigils -= Core.item.smHPVial.value;
 				Core.buttons.button(1, "Next", 5063);
 			}
 			//Leave the Apothecary Booth and continue exploring the town
@@ -167,11 +167,12 @@
 				Core.text.gameOutput("You decide to sit down and order yourself something to eat. A serving wench comes over a few minutes after you select a table and takes your order. You don’t have to wait long for your meal; a plate of roasted beef with potatoes and slices of fresh bread. A mug of chilled wine is also set down with your food before you are left to eat in peace.", true);
 				Core.text.gameOutput("\r\rAfter enjoying the food, you leave a few sigils as payment for the meal before leaving the tavern to continue exploring Vespyr.", false);
 				Core.pc.sigils -= 5;
+				Core.pc.fat += 5;
 				Core.buttons.button(1, "Next", 5050);
 			}
 			//Talk to the serving wench
 			if (eventNum == 5070) {
-				Core.text.gameOutput("ou walk up to one of the serving wenches, clearing your throat to get her attention from cleaning a table. The busty brunette smiles at you as she straightens up and smoothes out her apron, tucking the cleaning rag in a pocket.", true);
+				Core.text.gameOutput("You walk up to one of the serving wenches, clearing your throat to get her attention from cleaning a table. The busty brunette smiles at you as she straightens up and smoothes out her apron, tucking the cleaning rag in a pocket.", true);
 				Core.text.gameOutput("\r\r“How can I help you? Were you looking for a room or something to eat?” She asks politely.", false);
 				Core.text.gameOutput("\r\r“No, I’m just looking for news about the area is all.” You reply to her, deciding to keep your questions vague.", false);
 				Core.text.gameOutput("\r\r“News? Well, not much happens here but lately, we’ve been seeing less merchants and more soldiers passing through. At first, I thought what everyone else thought… that centaurs were causing problems for the farming villages but…” She starts to talk but suddenly stops and looks around the tavern before motioning you closer to whisper in your ear.", false);
@@ -199,6 +200,7 @@
 				Core.text.gameOutput("You slowly approach the man, keeping an eye on everyone else in the bar to be sure they aren’t on to what you are doing. The man smells putrid but you bear it as you reach for his coin purse and quickly snatch it. You play it off as normally as you can but no one’s noticed what you’ve done and you’ve scored yourself some extra money.", true);
 				Core.pc.sigils += 50;
 				Core.pc.addSelfish();
+				Core.flags.vespyr_StoleFromPoorDrunkManYouHeartlessFiend = true;
 				Core.buttons.button(1, "Next", 5068);
 			}
 			//Leave the drunk man alone
@@ -271,6 +273,7 @@
 				Core.text.gameOutput("\r\r“This blade will serve ya well now lad. Do well to take care of it.” The blacksmith chides before returning to work, leaving you to go back to exploring the town.", false);
 				Core.pc.sigils -= 50;
 				Core.pc.loot(Core.item.advenBlade);
+				Core.flags.player_HasOldSword = false;
 				Core.buttons.button(1, "Next", 5050);
 			}
 			//Leave the Blacksmith and continue exploring

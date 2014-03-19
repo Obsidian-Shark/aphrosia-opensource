@@ -6,6 +6,7 @@ package draconis.templates{
 	 */
 	
 	dynamic public class Item extends Object {
+		public var id:String = "";
 		public var name:String = "";
 		public var count:int = 0;
 		public var value:int = 0;

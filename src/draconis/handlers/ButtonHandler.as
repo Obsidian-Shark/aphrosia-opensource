@@ -107,8 +107,6 @@
 		}
 		//Load Data Screen
 		private function dataScreen(e:MouseEvent):void {
-			Core.screens.game.btnSaveGame.visible = true;
-			Core.screens.game.btnInventory.visible = true;
 			Core.screens.switchTo("Data");
 		}
 		//Data Slot 1
@@ -120,6 +118,8 @@
 		private function loadSlot1(e:MouseEvent) {
 			SaveLoad.loadData("one");
 			Core.screens.switchTo("Game");
+			Core.screens.game.btnSaveGame.visible = true;
+			Core.screens.game.btnInventory.visible = true;
 			if (Core.flags.loc_tyrRuins) TyrRuins.tyrRuins(Core.events.currEvent);
 			if (Core.flags.loc_vespyr) Vespyr.vespyr(Core.events.currEvent);
 			else Story.mainStory(Core.events.currEvent);
