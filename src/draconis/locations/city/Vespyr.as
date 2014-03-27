@@ -63,9 +63,9 @@
 			//Purchase Traverler's Garb and place it in Inventory
 			if (eventNum == 5054) {
 				Core.text.gameOutput("\r\rYou fish out the coin needed for the garment and had it over to the faun, who happily accepts your payment. She opens a drawer near the mannequin and pulls out a neatly folded set of the same outfit and pulls you over to a stand of screens and a mirror. It takes about an hour but the faun gets the garment to fit you comfortably and snugly. Pleased with your purchase, you bid the shop-keeper a good day and head back out to the town center.", false);
-				Core.pc.loot(Core.item.cotTunic);
-				Core.pc.loot(Core.item.hidePants);
-				Core.pc.loot(Core.item.hideBoots);
+				Core.pc.loot(Core.item.cotTunic, 1);
+				Core.pc.loot(Core.item.hidePants, 1);
+				Core.pc.loot(Core.item.hideBoots, 1);
 				Core.pc.sigils -= 50;
 				Core.buttons.button(1, "Next", 5050);
 			}
@@ -78,9 +78,9 @@
 			//Purchase Leather Armor and place it in Inventory
 			if (eventNum == 5056) {
 				Core.text.gameOutput("\r\rYou fish out the coin needed for the garment and had it over to the faun, who happily accepts your payment. She opens a drawer near the mannequin and pulls out a neatly folded set of the same outfit and pulls you over to a stand of screens and a mirror. It takes about an hour but the faun gets the garment to fit you comfortably and snugly. Pleased with your purchase, you bid the shop-keeper a good day and head back out to the town center.", false);
-				Core.pc.loot(Core.item.leathVest);
-				Core.pc.loot(Core.item.leathPants);
-				Core.pc.loot(Core.item.leathBoots);
+				Core.pc.loot(Core.item.leathVest, 1);
+				Core.pc.loot(Core.item.leathPants, 1);
+				Core.pc.loot(Core.item.leathBoots, 1);
 				Core.pc.sigils -= 200;
 				Core.buttons.button(1, "Next", 5050);
 			}
@@ -131,15 +131,15 @@
 			//Purchase some Inferil
 			if (eventNum == 5064) {
 				Core.text.gameOutput("You decide to buy yourself a bundle of Inferil leaves. You call the alchemist over and hand him the twenty sigils. You place the Inferil leaves in your bag for now and go back to looking around the booth.", true);
-				//Core.pc.loot(Core.item.inferil);
+				Core.pc.loot(Core.item.inferil, 10);
 				Core.pc.sigils -= Core.item.inferil.value;
 				Core.buttons.button(1, "Next", 5063);
 			}
 			//Purchase a Small Health Vial
 			if (eventNum == 5065) {
 				Core.text.gameOutput("You decide to buy yourself one of those small health vials. You call the alchemist over and hand him the ten sigils. You place the small vial in your bag for now and go back to looking around the booth.", true);
-				//Core.pc.loot(Core.item.smHPVial);
-				//Core.pc.sigils -= Core.item.smHPVial.value;
+				Core.pc.loot(Core.item.smHPVial, 1);
+				Core.pc.sigils -= Core.item.smHPVial.value;
 				Core.buttons.button(1, "Next", 5063);
 			}
 			//Leave the Apothecary Booth and continue exploring the town
@@ -250,21 +250,21 @@
 			if (eventNum == 5079) {
 				Core.text.gameOutput("You decide to buy the axe, handing over the correct sigils to the blacksmith before taking the weapon into your hands. Confident with your purchase, you head back to the center of town.", true);
 				Core.pc.sigils -= 80;
-				Core.pc.loot(Core.item.axe);
+				Core.pc.loot(Core.item.axe, 1);
 				Core.buttons.button(1, "Next", 5050);
 			}
 			//Purchase the Halberd
 			if (eventNum == 5080) {
 				Core.text.gameOutput("You decide to buy the halberd, handing over the correct sigils to the blacksmith before taking the weapon into your hands. Confident with your purchase, you head back to the center of town.", true);
 				Core.pc.sigils -= 100;
-				Core.pc.loot(Core.item.halberd);
+				Core.pc.loot(Core.item.halberd, 1);
 				Core.buttons.button(1, "Next", 5050);
 			}
 			//Purchase the Dagger
 			if (eventNum == 5081) {
 				Core.text.gameOutput("You decide to buy the dagger, handing over the correct sigils to the blacksmith before taking the weapon into your hands. Confident with your purchase, you head back to the center of town.", true);
 				Core.pc.sigils -= 40;
-				Core.pc.loot(Core.item.dagger);
+				Core.pc.loot(Core.item.dagger, 1);
 				Core.buttons.button(1, "Next", 5050);
 			}
 			//Repair the Old Sword
@@ -272,7 +272,8 @@
 				Core.text.gameOutput("You agree to have the sword repaired and hand him both the weapon and the money. The blacksmith tells you it’ll take awhile to finish the repairs, so you wander about Vespyr while he works. By the time you come back, the sword is nearly unrecognizable. The blade is polished and sharpened to a fine edge. He even throws in a sheath for you to properly carry the sword around.", true);
 				Core.text.gameOutput("\r\r“This blade will serve ya well now lad. Do well to take care of it.” The blacksmith chides before returning to work, leaving you to go back to exploring the town.", false);
 				Core.pc.sigils -= 50;
-				Core.pc.loot(Core.item.advenBlade);
+				Core.pc.loot(Core.item.advenBlade, 1);
+				Core.pc.drop(Core.item.oldSword);
 				Core.flags.player_HasOldSword = false;
 				Core.buttons.button(1, "Next", 5050);
 			}

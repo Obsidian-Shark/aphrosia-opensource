@@ -97,21 +97,21 @@
 				Core.text.gameOutput("Since you found a key, you might as well see if it goes to the lock. Luckily for you, the lock turns as soon as you insert the key and twist. The bolt makes a loud ‘clank’ as it slides open and the door swings open easily enough. Since you no longer need the key, you toss it.", true);
 				Core.flags.tyrRuins_StorageDoorLocked = false;
 				Core.flags.player_HasISTKey = false;
-				//Core.pc.drop(Core.item.istKey);
+				Core.pc.drop(Core.item.istKey);
 				Core.buttons.button(1, "Next", 5006);
 			}
 			//Take the Dragonbloom Whiskey bottle
 			if (eventNum == 5009) {
 				Core.text.gameOutput("You grab the bottle of whiskey. Oddly enough, the glass of the bottle feels soothingly warm to the touch. You place it in your bag.", true);
 				Core.container.strgRmContainer.Whiskey = false;
-				Core.pc.loot(Core.item.drgblmWhiskey);
+				Core.pc.loot(Core.item.drgblmWhiskey, 1);
 				Core.buttons.button(1, "Next", 5006);
 			}
 			//Take the health vial
 			if (eventNum == 5010) {
 				Core.text.gameOutput("You pick up the small health potion and stick it in your bag.", true);
 				Core.container.strgRmContainer.Vial = false;
-				//Core.pc.loot(Core.item.smHPVial);
+				Core.pc.loot(Core.item.smHPVial, 1);
 				Core.buttons.button(1, "Next", 5006);
 			}
 			//Leave the storage room
@@ -137,7 +137,7 @@
 				Core.text.gameOutput("You grab the hilt and pull the sword out from under the ash and debris. Just as you thought, it is the sword Jorgen had on display, a remnant of his days as a mercenary in his youth. The blade is dull, pitted, and covered in rust. You slip it through your belt, since you don’t have a sheath for it.", true);
 				Core.container.corpseContainer.Sword = false;
 				Core.flags.player_HasOldSword = true;
-				Core.pc.loot(Core.item.oldSword);
+				Core.pc.loot(Core.item.oldSword, 1);
 				Core.buttons.button(1, "Next", 5012);
 			}
 			//Take the iron key
@@ -145,7 +145,7 @@
 				Core.text.gameOutput("You snap the key off the leather strip. It has no distinguishing marks on it but it’s likely that it goes to something in the tavern.", true);
 				Core.container.corpseContainer.Key = false;
 				Core.flags.player_HasISTKey = true;
-				Core.pc.loot(Core.item.istKey);
+				Core.pc.loot(Core.item.istKey, 1);
 				Core.buttons.button(1, "Next", 5012);
 			}
 			//Leave the Corpse alone
@@ -175,7 +175,7 @@
 			if (eventNum == 5018) {
 				Core.text.gameOutput("With some effort, you pull the vial out without breaking it and place it in your bag.", true);
 				Core.container.cartContainer.Vial = false;
-				Core.pc.loot(Core.item.smHPVial);
+				Core.pc.loot(Core.item.smHPVial, 1);
 				Core.buttons.button(1, "Next", 5017);
 			}
 			//Take the coin purse
@@ -195,7 +195,7 @@
 				Core.text.gameOutput("You take one last look at the ruins you once called home. Columns of smoke still rise from the direction of the fields but the place is beyond any hope of saving. Family and friends are either dead or missing and you are all on your own with no place to stay. You turn your back on the depressing scene and head for the Merchant Highway to decide on where to go.", true);
 				if (Core.flags.player_HasISTKey) {
 					Core.text.gameOutput("\r\rPulling it out of your bag, you get the feeling you no longer need this key, so you toss it aside.", false);
-				 //Core.pc.drop(Core.item.istKey);	
+					Core.pc.drop(Core.item.istKey);	
 				}
 				Core.buttons.button(1, "Next", 5022);
 			}

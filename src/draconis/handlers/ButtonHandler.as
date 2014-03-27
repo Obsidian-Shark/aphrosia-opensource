@@ -154,8 +154,8 @@
 		//Player selects a target
 		private function target(e:MouseEvent):void {
 			if (e.target == Core.screens.combat.e1Target) Core.combat.player.pcAttack(Core.combat.enemy1);
-			//if (e.target == Core.screens.combat.e2Pane) Core.combat.player.pcAttack(Core.combat.enemy2);
-			//if (e.target == Core.screens.combat.e3Pane) Core.combat.player.pcAttack(Core.combat.enemy3);
+			//if (e.target == Core.screens.combat.e2Target) Core.combat.player.pcAttack(Core.combat.enemy2);
+			//if (e.target == Core.screens.combat.e3Target) Core.combat.player.pcAttack(Core.combat.enemy3);
 		}
 		//Master button assign thingy ma-jig
 		//Writes text label for button, assigns the appropriate event number, and uses btnNumber to identify which button in the display to use [Void Director]

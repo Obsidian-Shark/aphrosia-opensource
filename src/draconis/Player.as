@@ -3,6 +3,8 @@
 	/**
 	 * ...
 	 * @author Obsidian Shark
+	 * @author Void Director
+	 * @author Pako
 	 */
 	
 	import draconis.*;
@@ -107,26 +109,32 @@
 			
 		}
 		//Player loots item
-		public function loot(item:Object):void {
+		public function loot(item:Object, num:Number):void {
+			item.count = num;
 			if (bag.hasOwnProperty(item.name)) {
-				bag.item.count++;
-				trace("Player has " + bag.item.count + " " + item.name + "");
+				if (bag[item.name].count) {
+					bag[item.name].count ++;
+				}
+				else {
+					bag[item.name].count += 0;
+				}
+				trace("Player has " + bag[item.name].count + " " + item.name + "");
 			}
 			else {
 				bag[item.name] = item;
-				trace("Player adds " + item.name + " to bag");
+				trace("Player adds " + item.name + " to bag. ("+bag[item.name].count+")");
 			}
 		}
 		//Player drops item
 		public function drop(item:Object):void {
 			if (bag.hasOwnProperty(item.name)) {
-				bag.item.count--;
-				if (bag.item.count == 0) {
+				bag[item.name].count--;
+				if (bag[item.name].count == 0) {
 					delete(bag[item.name]);
 					trace("Player discards " +item.name + "");
 				}
 				else {
-					trace("Player has discarded a " + item.name + " and now have " + bag.item.count + " left");
+					trace("Player has discarded a " + item.name + " and now have " + bag[item.name].count + " left");
 				}
 			}
 		}

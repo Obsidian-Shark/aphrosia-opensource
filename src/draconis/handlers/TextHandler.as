@@ -6,6 +6,7 @@
 	 */
 	
 	import draconis.*;
+	import draconis.templates.*;
 	
 	public class TextHandler {
 		public var currText:String = "";
